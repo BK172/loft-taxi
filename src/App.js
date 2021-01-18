@@ -1,14 +1,17 @@
 import React from 'react';
+import { Login } from "./components/pages/login/login";
+import { Map } from "./components/pages/map/map";
+import { Profile } from "./components/pages/profile/profile";
 import './App.css';
 
 const PAGES = {
-  home: <Home />,
-  about: <About />,
+  login: <Login />,
+  map: <Map />,
   profile: <Profile />,
 };
 
 class App extends React.Component {
-  state = { currentPage: 'home' };
+  state = { currentPage: 'login' };
 
   navigateTo = (currentPage) => {
     this.setState({ currentPage });
@@ -16,24 +19,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <header>
           <nav>
             <ul>
               <li>
                 <button
                   onClick={() => {
-                    this.navigateTo('home');
+                    this.navigateTo('login');
                   }}
                 >
-                  Home
+                  Login
                 </button>
                 <button
                   onClick={() => {
-                    this.navigateTo('about');
+                    this.navigateTo('map');
                   }}
                 >
-                  About
+                  Map
                 </button>
                 <button
                   onClick={() => {
@@ -51,7 +54,7 @@ class App extends React.Component {
             {PAGES[this.state.currentPage]}
           </section>
         </main>
-      </div>
+      </>
     );
   }
 }
