@@ -1,25 +1,59 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const PAGES = {
+  home: <Home />,
+  about: <About />,
+  profile: <Profile />,
+};
+
+class App extends React.Component {
+  state = { currentPage: 'home' };
+
+  navigateTo = (currentPage) => {
+    this.setState({ currentPage });
+  };
+
+  render() {
+    return (
+      <div>
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <button
+                  onClick={() => {
+                    this.navigateTo('home');
+                  }}
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => {
+                    this.navigateTo('about');
+                  }}
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => {
+                    this.navigateTo('profile');
+                  }}
+                >
+                  Profile
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          <section>
+            {PAGES[this.state.currentPage]}
+          </section>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
