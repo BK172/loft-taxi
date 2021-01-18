@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from "./components/pages/header/header";
 import Login from "./components/pages/login/login";
 import Map from "./components/pages/map/map";
 import Profile from "./components/pages/profile/profile";
@@ -22,42 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <header>
-          <nav>
-            <ul>
-              <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo('login');
-                  }}
-                >
-                  Login
-                </button>
-                <button
-                  onClick={() => {
-                    this.navigateTo('map');
-                  }}
-                >
-                  Map
-                </button>
-                <button
-                  onClick={() => {
-                    this.navigateTo('profile');
-                  }}
-                >
-                  Profile
-                </button>
-                <button
-                  onClick={() => {
-                    this.navigateTo('registration');
-                  }}
-                >
-                  Registration
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </header>
+        <Header changePage={this.navigateTo} />
         <main>
           <section>
             {PAGES[this.state.currentPage]}
