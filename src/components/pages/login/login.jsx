@@ -14,7 +14,7 @@ const Login = () => {
       <div>
         <p>
           Новый пользователь? 
-          <button type="button" style="text-decoration: none; color: rgb(253, 191, 90);">Зарегистрируйтесь</button>
+          <button type="button" style={{textDecoration: 'none', color: 'rgb(253, 191, 90)'}}>Зарегистрируйтесь</button>
         </p>
       </div>
     </>

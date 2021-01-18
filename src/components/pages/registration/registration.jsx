@@ -18,7 +18,7 @@ const Registration = () => {
       <div>
         <p>
           Уже зарегистрирован?
-          <button type="button" style="text-decoration: none; color: rgb(253, 191, 90);">Войти</button>
+          <button type="button" style={{textDecoration: 'none', color: 'rgb(253, 191, 90)'}}>Войти</button>
         </p>
       </div>
     </>
