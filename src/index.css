@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Header */
+
+.header {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #fff;
+  background-color: #1c1a19;
+}
+
+.header__logo {
+  flex-grow: 1;
+}
+
+.header__button {
+  text-transform: none;
+}
+
+.header__button_active {
+  color: #fdbf5a;
+}
+
+/* Button */
+
+.btn {
+
+}
+
+.btn_active {
+  color: #fdbf5a;
+}
