@@ -6,7 +6,7 @@ import Profile from "./components/pages/profile/profile";
 import Registration from "./components/pages/registration/registration";
 
 class App extends React.Component {
-  state = { currentPage: 'login' };
+  state = { currentPage: 'registration' };
 
   navigateTo = (currentPage) => {
     this.setState({ currentPage });

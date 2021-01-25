@@ -1,15 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 /* App */
@@ -24,6 +16,15 @@ code {
   position: relative;
   height: calc(100vh - 73px);
   pointer-events: none;
+}
+
+.link.MuiLink-underlineHover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link_active.MuiTypography-colorPrimary {
+  color: #fdbf5a;
 }
 
 /* Header */
@@ -49,8 +50,9 @@ code {
 
 /* Button */
 
-.btn {
-
+.btn.MuiButton-containedPrimary {
+  color: #000000de;
+  background-color: #fdbf5a;
 }
 
 .btn_active {
@@ -60,26 +62,24 @@ code {
 /* Login page */
 
 .login-layout {
-  width: '100%';
-  overflow: 'hidden';
-  min-height: '100%';
-  position: 'relative';
-  height: '100vh';
-  display: 'flex';
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  min-height: 100%;
+  overflow: hidden;
 }
 
 .login-layout__left {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 34%;
   height: 100%;
-  background-color: '#1c1a19';
+  background-color: #1c1a19;
 }
 
 .login-layout__right {
-  position: relative;
   width: 66%;
   height: 100%;
   display: flex;
@@ -91,8 +91,56 @@ code {
   background-size: cover;
 }
 
-.login-layout__card {
+.login-layout__card.MuiPaper-rounded {
   width: 520px;
   padding: 48px 0;
   border-radius: 20px;
+}
+
+/* Form */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 100px 0 98px;
+}
+
+.form__title.MuiTypography-h4 {
+  margin-bottom: 2.75rem;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form__container {
+  margin-bottom: 24px;
+}
+
+.form__container label.Mui-focused {
+  color: #828282;
+}
+
+.form__items-two-col {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__submit-btn.MuiButtonBase-root {
+  margin-top: 72px;
+  border-radius: 40px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-transform: none;
+}
+
+.form__btns-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form__items-divider {
+  min-width: 8px;
 }

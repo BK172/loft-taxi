@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
 class Registration extends React.Component {
@@ -18,32 +18,69 @@ class Registration extends React.Component {
         </div>
         <div className="login-layout__right">
           <Paper className="login-layout__card" elevation={5}>
-            <section>
-              <h4>Регистрация</h4>
-              <form onSubmit={this.handleSubmit}>
-                <label htmlFor="email">Адрес электронной почты</label>
-                <input id="email" name="email" placeholder="Адрес электронной почты" required="" type="email" value="" size="28" />
-                <label htmlFor="user-name">Имя</label>
-                <input id="user-name" name="user-name" placeholder="Имя" required="" type="text" value="" size="28" />
-                <label htmlFor="user-surname">Фамилия</label>
-                <input id="user-surname" name="user-surname" placeholder="Фамилия" required="" type="text" value="" size="28" />
-                <label htmlFor="password">Пароль</label>
-                <input id="password" name="password" placeholder="Пароль" required="" type="password" value="" size="28" />
-                <button type="submit" onClick={() => onPageChange('registration')}>Зарегистрироваться</button>
+            <div className="form">
+              <Typography className="form__title" component="h1" variant="h4">
+                Регистрация
+              </Typography>
+              <form className="form__container" noValidate onSubmit={this.handleSubmit}>
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  id="email"
+                  name="email"
+                  label="Адрес электронной почты"
+                  autoFocus
+                  required
+                />
+                <div className="form__items-two-col">
+                  <TextField
+                    margin="normal"
+                    fullWidth
+                    id="name"
+                    name="firstName"
+                    label="Имя"
+                    required
+                  />
+                  <div className="form__items-divider"></div>
+                  <TextField
+                    margin="normal"
+                    fullWidth
+                    id="lastName"
+                    name="lastName"
+                    label="Фамилия"
+                    required
+                  />
+                </div>
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  id="password"
+                  name="password"
+                  label="Пароль"
+                  type="password"
+                  required
+                />
+                <Button
+                  className="btn form__submit-btn"
+                  fullWidth
+                  disableElevation
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  type="submit"
+                >
+                  Зарегистрироваться
+                </Button>
               </form>
-              <div>
-                <p>
-                  Уже зарегистрирован?
-                  <button
-                    type="button"
-                    style={{textDecoration: 'none', color: 'rgb(253, 191, 90)'}}
-                    onClick={() => onPageChange('login')}
-                  >
-                    Войти
-                  </button>
-                </p>
-              </div>
-            </section>
+              <Typography className="form__btns-container" variant="body1">
+                <span>Уже зарегистрирован? </span>
+                <span className="form__items-divider"></span>
+                <Link className="link link_active" onClick={() => onPageChange('login')}>
+                  Войти
+                </Link>
+              </Typography>
+          </div>
+
           </Paper>
         </div>
       </div>
