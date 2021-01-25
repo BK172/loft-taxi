@@ -45,8 +45,8 @@ class Registration extends React.Component {
                   <TextField
                     margin="normal"
                     fullWidth
-                    id="lastName"
-                    name="lastName"
+                    id="surName"
+                    name="surName"
                     label="Фамилия"
                     required
                   />
@@ -80,11 +80,10 @@ class Registration extends React.Component {
                 </Link>
               </Typography>
           </div>
-
           </Paper>
         </div>
       </div>
-    )
+    );
   };
 }
 

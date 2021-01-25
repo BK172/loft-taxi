@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
 class Login extends React.Component {
@@ -18,31 +18,51 @@ class Login extends React.Component {
         </div>
         <div className="login-layout__right">
           <Paper className="login-layout__card" elevation={5}>
-            <section>
-              <h4>Войти</h4>
-              <form onSubmit={this.handleSubmit}>
-                <label htmlFor="email">Имя пользователя</label>
-                <input id="email" name="email" placeholder="Имя пользователя" required="" type="email" value="" size="28" />
-                <label htmlFor="password">Пароль</label>
-                <input id="password" name="password" placeholder="Пароль" required="" type="password" value="" size="28" />
-                <button type="submit">Войти</button>
+            <div className="form">
+              <Typography className="form__title" component="h1" variant="h4">
+                Войти
+              </Typography>
+              <form className="form__container" noValidate onSubmit={this.handleSubmit}>
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  id="login"
+                  name="login"
+                  label="Имя пользователя"
+                  autoFocus
+                  required
+                />
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  id="password"
+                  name="password"
+                  label="Пароль"
+                  type="password"
+                  required
+                />
+                <Button
+                  className="btn form__submit-btn"
+                  fullWidth
+                  disableElevation
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  type="submit"
+                >
+                  Войти
+                </Button>
               </form>
-              <div>
-                <p>
-                  Новый пользователь? 
-                  <button
-                    type="button"
-                    style={{textDecoration: 'none', color: 'rgb(253, 191, 90)'}}
-                    onClick={() => onPageChange('registration')}
-                  >
-                    Зарегистрируйтесь
-                  </button>
-                </p>
-              </div>
-            </section>
+              <Typography className="form__btns-container" variant="body1">
+                <span>Новый пользователь?&nbsp;</span>
+                <Link className="link link_active" onClick={() => onPageChange('login')}>
+                  Зарегистрируйтесь
+                </Link>
+              </Typography>
+          </div>
           </Paper>
         </div>
-		  </div>
+      </div>
     );
   };
 }
