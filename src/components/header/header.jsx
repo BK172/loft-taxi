@@ -10,7 +10,7 @@ class Header extends React.Component {
       <AppBar position="static" elevation={4}>
         <Toolbar classes={{ root: 'header' }}>
           <div className="header__logo">
-            <img src={logo} alt='LoftTaxi logo'/>
+            <img src={logo} alt="LoftTaxi logo"/>
           </div>
           <Button classes={{ label: 'header__button header__button_active' }} color="inherit" onClick={() => onPageChange('map')}>Карта</Button>
           <Button classes={{ label: 'header__button' }} color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>

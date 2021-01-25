@@ -12,6 +12,20 @@ code {
     monospace;
 }
 
+/* App */
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  position: relative;
+  height: calc(100vh - 73px);
+  pointer-events: none;
+}
+
 /* Header */
 
 .header {
@@ -41,4 +55,44 @@ code {
 
 .btn_active {
   color: #fdbf5a;
+}
+
+/* Login page */
+
+.login-layout {
+  width: '100%';
+  overflow: 'hidden';
+  min-height: '100%';
+  position: 'relative';
+  height: '100vh';
+  display: 'flex';
+}
+
+.login-layout__left {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34%;
+  height: 100%;
+  background-color: '#1c1a19';
+}
+
+.login-layout__right {
+  position: relative;
+  width: 66%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./assets/images/bgr-map.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-layout__card {
+  width: 520px;
+  padding: 48px 0;
+  border-radius: 20px;
 }

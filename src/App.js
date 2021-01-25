@@ -26,14 +26,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="wrapper">
         <Header onPageChange={this.navigateTo} />
-        <main>
+        <main className="main">
           <section>
             {this.getPage(this.state.currentPage)}
           </section>
         </main>
-      </>
+      </div>
     );
   }
 }
