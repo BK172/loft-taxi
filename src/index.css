@@ -55,6 +55,10 @@ body {
   background-color: #fdbf5a;
 }
 
+.btn.MuiButton-containedPrimary:hover {
+  background-color: #ffa842;
+}
+
 .btn_active {
   color: #fdbf5a;
 }

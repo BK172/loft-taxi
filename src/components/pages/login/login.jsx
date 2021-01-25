@@ -55,7 +55,7 @@ class Login extends React.Component {
               </form>
               <Typography className="form__btns-container" variant="body1">
                 <span>Новый пользователь?&nbsp;</span>
-                <Link className="link link_active" onClick={() => onPageChange('login')}>
+                <Link className="link link_active" onClick={() => onPageChange('registration')}>
                   Зарегистрируйтесь
                 </Link>
               </Typography>
