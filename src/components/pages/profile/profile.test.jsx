@@ -1,10 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import Profile from './profile';
 
 describe('Profile component test', () => {
   it('Should render Profile correctly', () => {
-    const { container } = render(<Profile />);
-    expect(container.innerHTML).toMatch('Profile');
+    const tree = renderer.create(<Profile />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
