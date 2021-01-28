@@ -1,8 +1,8 @@
 import React from 'react';
-import Login from './components/pages/login/login';
-import Map from './components/pages/map/map';
-import Profile from './components/pages/profile/profile';
-import Registration from './components/pages/registration/registration';
+import Login from '../pages/login/login';
+import Map from '../pages/map/map';
+import Profile from '../pages/profile/profile';
+import Registration from '../pages/registration/registration';
 
 class App extends React.Component {
   state = { currentPage: 'login' };

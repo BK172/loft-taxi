@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component test Should render Login correctly 1`] = `
+<div
+  className="login-layout"
+>
+  <div
+    className="login-layout__left"
+  >
+    <img
+      alt="LoftTaxi logo"
+      src="logo-layout-bg.svg"
+    />
+  </div>
+  <div
+    className="login-layout__right"
+  >
+    <div
+      className="MuiPaper-root login-layout__card MuiPaper-elevation5 MuiPaper-rounded"
+    >
+      <div
+        className="form"
+      >
+        <h1
+          className="MuiTypography-root form__title MuiTypography-h4"
+        >
+          Войти
+        </h1>
+        <form
+          className="form__container"
+          noValidate={true}
+          onSubmit={[Function]}
+        >
+          <div
+            className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+              data-shrink={false}
+              htmlFor="login"
+              id="login-label"
+            >
+              Имя пользователя
+              <span
+                aria-hidden={true}
+                className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+              onClick={[Function]}
+            >
+              <input
+                aria-invalid={false}
+                autoFocus={true}
+                className="MuiInputBase-input MuiInput-input"
+                disabled={false}
+                id="login"
+                name="login"
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+              data-shrink={false}
+              htmlFor="password"
+              id="password-label"
+            >
+              Пароль
+              <span
+                aria-hidden={true}
+                className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+              onClick={[Function]}
+            >
+              <input
+                aria-invalid={false}
+                autoFocus={false}
+                className="MuiInputBase-input MuiInput-input"
+                disabled={false}
+                id="password"
+                name="password"
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="password"
+              />
+            </div>
+          </div>
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained btn form__submit-btn MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation MuiButton-fullWidth"
+            disabled={false}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="submit"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              Войти
+            </span>
+          </button>
+        </form>
+        <p
+          className="MuiTypography-root form__btns-container MuiTypography-body1"
+        >
+          <span>
+            Новый пользователь? 
+          </span>
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover link link_active MuiTypography-colorPrimary"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+          >
+            Зарегистрируйтесь
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
