@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../../header/header';
 
-const Profile = () => {
+const Profile = ({onPageChange}) => {
   return (
     <div className="wrapper">
-      <Header onPageChange={this.props.onPageChange} />
+      <Header onPageChange={onPageChange} />
       <main className="main">
         <section>
           <p>Profile</p>
