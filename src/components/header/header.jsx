@@ -14,6 +14,7 @@ class Header extends React.Component {
           </div>
           <Button classes={{ label: 'header__button header__button_active' }} color="inherit" onClick={() => onPageChange('map')}>Карта</Button>
           <Button classes={{ label: 'header__button' }} color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>
+          <Button classes={{ label: 'header__button' }} color="inherit" onClick={() => onPageChange('login')}>Войти</Button>
           <Button classes={{ label: 'header__button' }} color="inherit">Выйти</Button>
         </Toolbar>
       </AppBar>
