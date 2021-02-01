@@ -4,6 +4,8 @@ import { render, fireEvent } from '@testing-library/react';
 import App from '../app/app';
 import Header from './header';
 
+jest.mock('mapbox-gl', () => ({}));
+
 // jest.mock('../pages/login/login', () => ({ Login: () => <div>Login component</div> }));
 // jest.mock('../pages/map/map', () => ({ Map: () => <div>Map component</div> }));
 // jest.mock('../pages/profile/profile', () => ({ Profile: () => <div>Profile component</div> }));

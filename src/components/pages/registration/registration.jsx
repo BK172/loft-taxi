@@ -3,10 +3,16 @@ import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
 class Registration extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.onPageChange('map');
-  };
+  }
 
   render() {
     const { onPageChange } = this.props;
@@ -84,7 +90,7 @@ class Registration extends React.Component {
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default Registration;

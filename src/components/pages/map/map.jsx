@@ -22,7 +22,7 @@ class Map extends Component {
   }
 
   render() {
-    const { onPageChange } = this.props.onPageChange;
+    const { onPageChange } = this.props;
 
     return (
       <div className="wrapper">
