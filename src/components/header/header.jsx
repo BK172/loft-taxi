@@ -12,7 +12,7 @@ class Header extends React.Component {
           <div className="header__logo">
             <img src={logo} alt="LoftTaxi logo"/>
           </div>
-          <Button classes={{ label: 'header__button_active' }} color="inherit" onClick={() => onPageChange('map')}>Карта</Button>
+          <Button color="primary" onClick={() => onPageChange('map')}>Карта</Button>
           <Button color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>
           <Button color="inherit" onClick={() => onPageChange('login')}>Войти</Button>
           <Button color="inherit">Выйти</Button>

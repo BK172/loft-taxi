@@ -19,7 +19,7 @@ exports[`Map component test Should render Map correctly 1`] = `
         />
       </div>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -37,7 +37,7 @@ exports[`Map component test Should render Map correctly 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label header__button header__button_active"
+          className="MuiButton-label"
         >
           Карта
         </span>
@@ -61,7 +61,7 @@ exports[`Map component test Should render Map correctly 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label header__button"
+          className="MuiButton-label"
         >
           Профиль
         </span>
@@ -85,7 +85,7 @@ exports[`Map component test Should render Map correctly 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label header__button"
+          className="MuiButton-label"
         >
           Войти
         </span>
@@ -108,7 +108,7 @@ exports[`Map component test Should render Map correctly 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label header__button"
+          className="MuiButton-label"
         >
           Выйти
         </span>

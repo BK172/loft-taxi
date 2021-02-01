@@ -7,25 +7,20 @@ import Registration from '../pages/registration/registration';
 class App extends React.Component {
   state = { currentPage: 'login' };
 
+  PAGES = {
+    login: <Login onPageChange={this.navigateTo} />,
+    map: <Map onPageChange={this.navigateTo} />,
+    profile: <Profile onPageChange={this.navigateTo} />,
+    registration: <Registration onPageChange={this.navigateTo} />,
+  };
+
   navigateTo = (currentPage) => {
     this.setState({ currentPage });
   };
 
-  getPage = (page) => {
-    if (page === 'login') {
-      return <Login onPageChange={this.navigateTo} />;
-    } else if (page === 'map') {
-      return <Map onPageChange={this.navigateTo} />;
-    } else if (page === 'profile') {
-      return <Profile onPageChange={this.navigateTo} />;
-    } else if (page === 'registration') {
-      return <Registration onPageChange={this.navigateTo} />;
-    }
-  };
-
   render() {
-    return this.getPage(this.state.currentPage);
-  }
+    return PAGES[this.state.currentPage];
+  };
 }
 
 export default App;
