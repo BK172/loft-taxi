@@ -17,9 +17,9 @@ class Registration extends React.Component {
           <img src={logo} alt="LoftTaxi logo" />
         </div>
         <div className="login-layout__right">
-          <Paper className="login-layout__card" elevation={5}>
-            <div className="form">
-              <Typography className="form__title" component="h1" variant="h4">
+          <Paper classes={{ root: 'login-layout__card' }} elevation={5}>
+            <div className="form__wrapper">
+              <Typography component="h1" variant="h4">
                 Регистрация
               </Typography>
               <form className="form__container" noValidate onSubmit={this.handleSubmit}>
@@ -61,7 +61,7 @@ class Registration extends React.Component {
                   required
                 />
                 <Button
-                  className="btn form__submit-btn"
+                  classes={{ root: 'form__submit-btn' }}
                   fullWidth
                   disableElevation
                   variant="contained"
@@ -72,10 +72,10 @@ class Registration extends React.Component {
                   Зарегистрироваться
                 </Button>
               </form>
-              <Typography className="form__btns-container" variant="body1">
+              <Typography classes={{ root: 'form__btns-container' }} variant="body1">
                 <span>Уже зарегистрирован? </span>
                 <span className="form__items-divider"></span>
-                <Link className="link link_active" onClick={() => onPageChange('login')}>
+                <Link onClick={() => onPageChange('login')}>
                   Войти
                 </Link>
               </Typography>
