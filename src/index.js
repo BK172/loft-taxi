@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { AuthProvider } from './components/auth-context/auth-context';
 import App from './components/app/app';
 import reportWebVitals from './reportWebVitals';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from "@material-ui/core/styles";
 import orange from "@material-ui/core/colors/orange";
+import './index.css';
 
 const theme = createMuiTheme({
   palette: {
@@ -86,7 +87,9 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

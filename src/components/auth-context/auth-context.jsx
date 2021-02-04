@@ -30,7 +30,7 @@ export const withAuth = (WrappedComponent) => {
       return (
         <AuthContext.Consumer>
           {(value) => {
-            return <WrappedComponent value={...value} {...this.props}></WrappedComponent>;
+            return <WrappedComponent {...value} {...this.props} />;
           }}
         </AuthContext.Consumer>
       );

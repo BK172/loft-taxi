@@ -3,6 +3,7 @@ import Login from '../pages/login/login';
 import Map from '../pages/map/map';
 import Profile from '../pages/profile/profile';
 import Registration from '../pages/registration/registration';
+import { withAuth } from '../auth-context/auth-context';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,11 @@ class App extends React.Component {
   }
 
   navigateTo = currentPage => {
-    this.setState({ currentPage });
+    if (this.props.isLoggedIn) {
+      this.setState({ currentPage });
+    } else {
+      this.setState({ currentPage: 'login' });
+    }
   }
 
   render() {
@@ -29,4 +34,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuth(App);
