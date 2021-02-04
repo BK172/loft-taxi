@@ -1,7 +1,7 @@
 import React from 'react';
+import { withAuth } from '../../auth-context/auth-context';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
-import withAuth from '../../auth-context/auth-context';
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,11 +12,17 @@ class Login extends React.Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    this.props.onPageChange('map');
+    const { login, password } = evt.target;
+
+    this.props.logIn(login.value, password.value);
   }
 
   render() {
-    const { onPageChange } = this.props;
+    const { onPageChange, isLoggedIn } = this.props;
+
+    if (isLoggedIn) {
+      onPageChange('profile');
+    }
 
     return (
       <div className="login-layout">

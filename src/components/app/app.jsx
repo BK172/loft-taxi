@@ -2,7 +2,7 @@ import React from 'react';
 import LoginWithAuth from '../pages/login/login';
 import Map from '../pages/map/map';
 import ProfileWithAuth from '../pages/profile/profile';
-import RegistrationWithAuth from '../pages/registration/registration';
+import Registration from '../pages/registration/registration';
 import { withAuth } from '../auth-context/auth-context';
 
 class App extends React.Component {
@@ -10,10 +10,10 @@ class App extends React.Component {
     super(props);
 
     this.PAGES = {
-      login: (props) => <LoginWithAuth {...props} />,
-      map: (props) => <Map {...props} />,
-      profile: (props) => <ProfileWithAuth {...props} />,
-      registration: (props) => <RegistrationWithAuth {...props} />,
+      login: (props) => <LoginWithAuth {...props} {...this.props} />,
+      map: (props) => <Map {...props} {...this.props} />,
+      profile: (props) => <ProfileWithAuth {...props} {...this.props} />,
+      registration: (props) => <Registration {...props} {...this.props} />,
     };
 
     this.state = { currentPage: 'login' };
@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   render() {
-    return this.PAGES[this.state.currentPage];
+    return this.PAGES[this.state.currentPage]({ onPageChange: this.navigateTo });
   }
 }
 
