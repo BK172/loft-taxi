@@ -1,8 +1,8 @@
 import React from 'react';
-import Login from '../pages/login/login';
+import LoginWithAuth from '../pages/login/login';
 import Map from '../pages/map/map';
-import Profile from '../pages/profile/profile';
-import Registration from '../pages/registration/registration';
+import ProfileWithAuth from '../pages/profile/profile';
+import RegistrationWithAuth from '../pages/registration/registration';
 import { withAuth } from '../auth-context/auth-context';
 
 class App extends React.Component {
@@ -10,10 +10,10 @@ class App extends React.Component {
     super(props);
 
     this.PAGES = {
-      login: <Login onPageChange={this.navigateTo} />,
-      map: <Map onPageChange={this.navigateTo} />,
-      profile: <Profile onPageChange={this.navigateTo} />,
-      registration: <Registration onPageChange={this.navigateTo} />,
+      login: (props) => <LoginWithAuth {...props} />,
+      map: (props) => <Map {...props} />,
+      profile: (props) => <ProfileWithAuth {...props} />,
+      registration: (props) => <RegistrationWithAuth {...props} />,
     };
 
     this.state = { currentPage: 'login' };

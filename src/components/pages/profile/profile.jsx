@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../../header/header';
+import withAuth from '../../auth-context/auth-context';
 
 const Profile = ({onPageChange}) => {
   return (
@@ -15,3 +16,5 @@ const Profile = ({onPageChange}) => {
 };
 
 export default Profile;
+
+export const ProfileWithAuth = withAuth(Profile);

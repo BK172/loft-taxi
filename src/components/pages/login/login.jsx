@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
+import withAuth from '../../auth-context/auth-context';
 
 class Login extends React.Component {
   constructor(props) {
@@ -74,3 +75,5 @@ class Login extends React.Component {
 }
 
 export default Login;
+
+export const LoginWithAuth = withAuth(Login);
