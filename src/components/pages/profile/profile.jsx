@@ -1,11 +1,10 @@
 import React from 'react';
-import Header from '../../header/header';
-import withAuth from '../../auth-context/auth-context';
+import HeaderWithAuth from '../../header/header';
 
-const Profile = ({onPageChange}) => {
+const Profile = ({ onPageChange, logOut }) => {
   return (
     <div className="wrapper">
-      <Header onPageChange={onPageChange} />
+      <HeaderWithAuth onPageChange={onPageChange} logOut={logOut} />
       <main className="main">
         <section>
           <p>Profile</p>
@@ -16,5 +15,3 @@ const Profile = ({onPageChange}) => {
 };
 
 export default Profile;
-
-export const ProfileWithAuth = withAuth(Profile);

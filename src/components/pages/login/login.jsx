@@ -21,7 +21,7 @@ class Login extends React.Component {
     const { onPageChange, isLoggedIn } = this.props;
 
     if (isLoggedIn) {
-      onPageChange('profile');
+      onPageChange('map');
     }
 
     return (
