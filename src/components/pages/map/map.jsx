@@ -33,7 +33,7 @@ class Map extends Component {
         <HeaderWithAuth onPageChange={onPageChange} logOut={logOut} />
         <main className="main">
           <section className="map__wrapper">
-            <div className="map__map" data-testid="map" ref={this.mapContainer}></div>
+            <div className="map__map" ref={this.mapContainer}></div>
           </section>
         </main>
       </div>

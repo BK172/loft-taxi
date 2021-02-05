@@ -4,25 +4,9 @@ import { render, fireEvent } from '@testing-library/react';
 import App from '../app/app';
 import Header from './header';
 
-jest.mock(`../pages/map/map`);
-
-beforeAll(() => {
-  jest.fn().mockImplementation(() => {
-    return {
-      remove: jest.fn()
-    };
-  });
-});
-
-jest.mock('mapbox-gl', () => ({
-  map: jest.fn().mockReturnValue({
-    remove: jest.fn(),
-  }),
-}));
-
-// jest.mock('../pages/login/login', () => ({ Login: () => <div>Login component</div> }));
 // jest.mock('../pages/map/map', () => ({ Map: () => <div>Map component</div> }));
 // jest.mock('../pages/profile/profile', () => ({ Profile: () => <div>Profile component</div> }));
+// jest.mock('../pages/login/login', () => ({ Login: () => <div>Login component</div> }));
 
 describe('Header component test', () => {
   it('Should render Header correctly', () => {
@@ -32,14 +16,15 @@ describe('Header component test', () => {
 
   // describe('Click on navigation buttons test', () => {
   //   it('Should open the corresponding page', () => {
-  //     const { container } = render(<App />);
-  //     const { header } = render(<Header />);
+  //     const { container } = render(<App isLoggedIn />);
 
-  //     fireEvent.click(getByText(header, 'Карта'));
+  //     fireEvent.click(getByText('Карта'));
   //     expect(container.innerHTML).toMatch('Map component');
-  //     fireEvent.click(getByText(header, 'Профиль'));
+  //     fireEvent.click(getByText('Профиль'));
   //     expect(container.innerHTML).toMatch('Profile component');
-  //     fireEvent.click(getByText(header, 'Войти'));
+  //     fireEvent.click(getByText('Войти'));
+  //     expect(container.innerHTML).toMatch('Login component');
+  //     fireEvent.click(getByText('Выйти'));
   //     expect(container.innerHTML).toMatch('Login component');
   //   });
   // });

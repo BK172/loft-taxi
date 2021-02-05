@@ -12,12 +12,6 @@ beforeAll(() => {
   });
 });
 
-jest.mock('mapbox-gl', () => ({
-  map: jest.fn().mockReturnValue({
-    remove: jest.fn(),
-  }),
-}));
-
 describe('Map component test', () => {
   it('Should render Map correctly', () => {
     const tree = renderer.create(<Map />).toJSON();
