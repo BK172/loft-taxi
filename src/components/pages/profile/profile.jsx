@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../header/header';
 
-const Profile = ({ onPageChange, logOut }) => {
+const Profile = ({ onPageChange }) => {
   return (
     <div className="wrapper">
       <Header onPageChange={onPageChange} />
@@ -16,12 +16,10 @@ const Profile = ({ onPageChange, logOut }) => {
 };
 
 Profile.defaultProps = {
-  logOut: ()=>{},
   onPageChange: ()=>{},
 };
 
 Profile.propTypes = {
-  logOut: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
 

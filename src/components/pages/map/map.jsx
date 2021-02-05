@@ -27,7 +27,7 @@ class Map extends Component {
   }
 
   render() {
-    const { onPageChange, logOut } = this.props;
+    const { onPageChange } = this.props;
 
     return (
       <div className="wrapper">
@@ -43,7 +43,6 @@ class Map extends Component {
 }
 
 Map.propTypes = {
-  logOut: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
 

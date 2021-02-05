@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withAuth } from '../auth-context/auth-context';
+import { AuthContext } from '../auth-context/auth-context';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import logo from '../../assets/images/logo-header.svg';
 
@@ -11,10 +11,14 @@ class Header extends React.Component {
     this.onLogOut = this.onLogOut.bind(this);
   }
 
-  onLogOut() {
-    this.props.logOut();
+  onLogOut = () => {
     this.props.onPageChange('login');
+
+    const { logOut } = this.context;
+    logOut();
   }
+
+  static contextType = AuthContext;
 
   render() {
     const { onPageChange } = this.props;
@@ -36,10 +40,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  logOut: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
 
 export default Header;
-
-export const HeaderWithAuth = withAuth(Header);
