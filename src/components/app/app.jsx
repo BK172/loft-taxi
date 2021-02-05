@@ -1,4 +1,5 @@
 import React from 'react';
+import {authContextDefaultProps, authContextProps} from '../../app-prop-types';
 import LoginWithAuth from '../pages/login/login';
 import Map from '../pages/map/map';
 import Profile from '../pages/profile/profile';
@@ -33,5 +34,8 @@ class App extends React.Component {
     return this.PAGES[this.state.currentPage]({ onPageChange: this.navigateTo });
   }
 }
+
+App.defaultProps = authContextDefaultProps;
+App.propTypes = authContextProps;
 
 export default withAuth(App);

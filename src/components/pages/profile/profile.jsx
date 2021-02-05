@@ -1,4 +1,5 @@
 import React from 'react';
+import {pageDefaultProps, pageProps} from '../../../app-prop-types';
 import HeaderWithAuth from '../../header/header';
 
 const Profile = ({ onPageChange, logOut }) => {
@@ -13,5 +14,8 @@ const Profile = ({ onPageChange, logOut }) => {
     </div>
   );
 };
+
+Profile.defaultProps = pageDefaultProps;
+Profile.propTypes = pageProps;
 
 export default Profile;

@@ -1,4 +1,5 @@
 import React from 'react';
+import {pageDefaultProps, pageProps} from '../../app-prop-types';
 import { withAuth } from '../auth-context/auth-context';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import logo from '../../assets/images/logo-header.svg';
@@ -33,6 +34,9 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.defaultProps = pageDefaultProps;
+Header.propTypes = pageProps;
 
 export default Header;
 

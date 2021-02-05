@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {pageDefaultProps, pageProps} from '../../../app-prop-types';
 import mapboxgl from 'mapbox-gl';
 import HeaderWithAuth from '../../header/header';
 
@@ -40,5 +41,8 @@ class Map extends Component {
     );
   }
 }
+
+Map.defaultProps = pageDefaultProps;
+Map.propTypes = pageProps;
 
 export default Map;

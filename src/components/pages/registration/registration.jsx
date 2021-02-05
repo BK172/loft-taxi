@@ -1,4 +1,5 @@
 import React from 'react';
+import {pageDefaultProps, pageProps} from '../../../app-prop-types';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
@@ -92,5 +93,8 @@ class Registration extends React.Component {
     );
   }
 }
+
+Registration.defaultProps = pageDefaultProps;
+Registration.propTypes = pageProps;
 
 export default Registration;
