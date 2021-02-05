@@ -1,5 +1,5 @@
 import React from 'react';
-import {pageDefaultProps, pageProps} from '../../../app-prop-types';
+import PropTypes from 'prop-types';
 import { withAuth } from '../../auth-context/auth-context';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
@@ -82,8 +82,10 @@ class Login extends React.Component {
   }
 }
 
-Login.defaultProps = pageDefaultProps;
-Login.propTypes = pageProps;
+Login.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
 
 export default Login;
 

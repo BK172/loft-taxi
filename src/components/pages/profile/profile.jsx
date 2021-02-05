@@ -1,11 +1,11 @@
 import React from 'react';
-import {pageDefaultProps, pageProps} from '../../../app-prop-types';
-import HeaderWithAuth from '../../header/header';
+import PropTypes from 'prop-types';
+import Header from '../../header/header';
 
 const Profile = ({ onPageChange, logOut }) => {
   return (
     <div className="wrapper">
-      <HeaderWithAuth onPageChange={onPageChange} logOut={logOut} />
+      <Header onPageChange={onPageChange} />
       <main className="main">
         <section>
           <p>Profile</p>
@@ -15,7 +15,14 @@ const Profile = ({ onPageChange, logOut }) => {
   );
 };
 
-Profile.defaultProps = pageDefaultProps;
-Profile.propTypes = pageProps;
+Profile.defaultProps = {
+  logOut: ()=>{},
+  onPageChange: ()=>{},
+};
+
+Profile.propTypes = {
+  logOut: PropTypes.func.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
 
 export default Profile;

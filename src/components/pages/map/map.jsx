@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {pageDefaultProps, pageProps} from '../../../app-prop-types';
+import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
-import HeaderWithAuth from '../../header/header';
+import Header from '../../header/header';
 
 class Map extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class Map extends Component {
 
     return (
       <div className="wrapper">
-        <HeaderWithAuth onPageChange={onPageChange} logOut={logOut} />
+        <Header onPageChange={onPageChange} />
         <main className="main">
           <section className="map__wrapper">
             <div className="map__map" ref={this.mapContainer}></div>
@@ -42,7 +42,9 @@ class Map extends Component {
   }
 }
 
-Map.defaultProps = pageDefaultProps;
-Map.propTypes = pageProps;
+Map.propTypes = {
+  logOut: PropTypes.func.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
 
 export default Map;
