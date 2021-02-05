@@ -4,7 +4,21 @@ import { render, fireEvent } from '@testing-library/react';
 import App from '../app/app';
 import Header from './header';
 
-jest.mock('mapbox-gl', () => ({}));
+jest.mock(`../pages/map/map`);
+
+beforeAll(() => {
+  jest.fn().mockImplementation(() => {
+    return {
+      remove: jest.fn()
+    };
+  });
+});
+
+jest.mock('mapbox-gl', () => ({
+  map: jest.fn().mockReturnValue({
+    remove: jest.fn(),
+  }),
+}));
 
 // jest.mock('../pages/login/login', () => ({ Login: () => <div>Login component</div> }));
 // jest.mock('../pages/map/map', () => ({ Map: () => <div>Map component</div> }));

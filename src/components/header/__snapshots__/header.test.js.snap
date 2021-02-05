@@ -91,6 +91,7 @@ exports[`Header component test Should render Header correctly 1`] = `
       className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
