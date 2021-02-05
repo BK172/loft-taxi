@@ -191,7 +191,7 @@ exports[`Registration component test Should render Registration correctly 1`] = 
             </div>
           </div>
           <button
-            className="MuiButtonBase-root MuiButton-root form__submit-btn MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation MuiButton-fullWidth"
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained form__submit-btn MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation MuiButton-fullWidth"
             disabled={false}
             onBlur={[Function]}
             onDragLeave={[Function]}
@@ -224,7 +224,7 @@ exports[`Registration component test Should render Registration correctly 1`] = 
             className="form__items-divider"
           />
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover form__btn-footer MuiTypography-colorPrimary"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}

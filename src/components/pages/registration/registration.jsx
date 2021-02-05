@@ -67,7 +67,7 @@ class Registration extends React.Component {
                   required
                 />
                 <Button
-                  classes={{ root: 'form__submit-btn' }}
+                  className="form__submit-btn"
                   fullWidth
                   disableElevation
                   variant="contained"
@@ -81,7 +81,7 @@ class Registration extends React.Component {
               <Typography classes={{ root: 'form__btns-container' }} variant="body1">
                 <span>Уже зарегистрирован? </span>
                 <span className="form__items-divider"></span>
-                <Link onClick={() => onPageChange('login')}>
+                <Link className="form__btn-footer" onClick={() => onPageChange('login')}>
                   Войти
                 </Link>
               </Typography>

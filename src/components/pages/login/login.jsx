@@ -12,7 +12,8 @@ class Login extends React.Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    const { login, password } = evt.target;
+    const login = evt.target && evt.target.login ? evt.target.login : '';
+    const password = evt.target && evt.target.password ? evt.target.password : '';
 
     this.props.logIn(login.value, password.value);
   }
@@ -55,7 +56,7 @@ class Login extends React.Component {
                   required
                 />
                 <Button
-                  classes={{ root: 'form__submit-btn' }}
+                  className="form__submit-btn"
                   fullWidth
                   disableElevation
                   variant="contained"
@@ -68,7 +69,7 @@ class Login extends React.Component {
               </form>
               <Typography classes={{ root: 'form__btns-container' }} variant="body1">
                 <span>Новый пользователь?&nbsp;</span>
-                <Link onClick={() => onPageChange('registration')}>
+                <Link className="form__btn-footer" onClick={() => onPageChange('registration')}>
                   Зарегистрируйтесь
                 </Link>
               </Typography>

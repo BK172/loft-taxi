@@ -24,10 +24,10 @@ class Header extends React.Component {
           <div className="header__logo">
             <img src={logo} alt="LoftTaxi logo"/>
           </div>
-          <Button type="button" color="primary" onClick={() => onPageChange('map')}>Карта</Button>
-          <Button type="button" color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>
-          <Button type="button" color="inherit" onClick={() => onPageChange('login')}>Войти</Button>
-          <Button type="button" color="inherit" onClick={() => this.onLogOut()}>Выйти</Button>
+          <Button classes={{ root: 'header__button' }} type="button" color="primary" onClick={() => onPageChange('map')}>Карта</Button>
+          <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>
+          <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('login')}>Войти</Button>
+          <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => this.onLogOut()}>Выйти</Button>
         </Toolbar>
       </AppBar>
     );

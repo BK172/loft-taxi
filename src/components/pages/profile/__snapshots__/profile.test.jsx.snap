@@ -19,7 +19,7 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         />
       </div>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-textPrimary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -43,7 +43,7 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         </span>
       </button>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -67,7 +67,7 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         </span>
       </button>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -91,7 +91,7 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         </span>
       </button>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
