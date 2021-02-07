@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AuthContext } from '../../auth-context/auth-context';
+import { connect } from 'react-redux';
+import { logIn as logInAction } from '../../../store/reducers/auth/actions';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
@@ -16,15 +17,12 @@ class Login extends React.Component {
     const login = evt.target && evt.target.login ? evt.target.login : '';
     const password = evt.target && evt.target.password ? evt.target.password : '';
 
-    const { logIn } = this.context;
+    const { logIn } = this.props;
     logIn(login.value, password.value);
   }
 
-  static contextType = AuthContext;
-
   render() {
-    const { onPageChange } = this.props;
-    const { isLoggedIn } = this.context;
+    const { onPageChange, isLoggedIn } = this.props;
 
     if (isLoggedIn) {
       onPageChange('map');
@@ -90,4 +88,11 @@ Login.propTypes = {
   onPageChange: PropTypes.func.isRequired,
 };
 
-export default Login;
+const mapStateToProps = ({ AUTH }) => ({
+  isLoggedIn: AUTH.isLoggedIn,
+});
+
+const mapDispatchToProps = { logIn: logInAction };
+
+export { Login };
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
