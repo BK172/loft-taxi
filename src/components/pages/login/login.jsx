@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logIn as logInAction } from '../../../store/reducers/auth/actions';
+import { auth as authAction } from '../../../store/reducers/auth/actions';
 import { getIsLoggedIn } from '../../../store/reducers/auth/selectors';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
-const Login = ({ onPageChange, isLoggedIn, logIn }) => {
+const Login = ({ onPageChange, isLoggedIn, auth }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     const login = evt.target && evt.target.login ? evt.target.login : '';
     const password = evt.target && evt.target.password ? evt.target.password : '';
 
-    logIn(login.value, password.value);
+    auth(login.value, password.value);
   };
 
   if (isLoggedIn) {
@@ -82,7 +82,7 @@ const mapStateToProps = ({ AUTH }) => ({
   isLoggedIn: getIsLoggedIn({ AUTH }),
 });
 
-const mapDispatchToProps = { logIn: logInAction };
+const mapDispatchToProps = { auth: authAction };
 
 export { Login };
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

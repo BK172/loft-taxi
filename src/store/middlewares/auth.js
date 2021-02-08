@@ -1,4 +1,4 @@
-import { logIn, ActionType } from '../reducers/actions';
+import { logIn, ActionType } from '../reducers/auth/actions';
 import { serverLogin } from '../../api';
 
 export const authMiddleware = (store) => (next) => async (action) => {
