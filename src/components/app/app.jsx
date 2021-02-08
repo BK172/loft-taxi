@@ -7,7 +7,7 @@ import { AuthContext } from '../auth-context/auth-context';
 
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState('login');
-  const ctx = React.useContext(AuthContext);
+  const { isLoggedIn } = React.useContext(AuthContext);
 
   const PAGES = {
     login: (props) => <Login {...props} />,
@@ -17,7 +17,7 @@ const App = () => {
   };
 
   const navigateTo = currentPage => {
-    if (!ctx.isLoggedIn && currentPage !== 'registration') {
+    if (!isLoggedIn && currentPage !== 'registration') {
       setCurrentPage('login');
     } else {
       setCurrentPage(currentPage);
@@ -25,6 +25,6 @@ const App = () => {
   };
 
   return PAGES[currentPage]({ onPageChange: navigateTo });
-}
+};
 
 export default App;

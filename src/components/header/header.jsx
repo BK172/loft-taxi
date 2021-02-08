@@ -5,11 +5,11 @@ import { AppBar, Toolbar, Button } from '@material-ui/core';
 import logo from '../../assets/images/logo-header.svg';
 
 const Header = ({ onPageChange }) => {
-  const ctx = React.useContext(AuthContext);
+  const { logOut } = React.useContext(AuthContext);
 
   const onLogOut = () => {
     onPageChange('login');
-    ctx.logOut();
+    logOut();
   };
 
   return (
