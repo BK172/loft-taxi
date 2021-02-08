@@ -15,8 +15,11 @@ describe('Login component test', () => {
     const tree = renderer.create(
       <Login
         onPageChange={jest.fn()}
+<<<<<<< HEAD
         isLoggedIn={false}
         logIn={jest.fn()}
+=======
+>>>>>>> Правки тестов
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -27,8 +30,11 @@ describe('Login component test', () => {
     const wrapper = shallow(
         <Login
           onPageChange={jest.fn()}
+<<<<<<< HEAD
           isLoggedIn={false}
           logIn={jest.fn()}
+=======
+>>>>>>> Правки тестов
         />
     );
 
@@ -44,8 +50,11 @@ describe('Login component test', () => {
     const wrapper = shallow(
         <Login
           onPageChange={jest.fn()}
+<<<<<<< HEAD
           isLoggedIn={false}
           logIn={jest.fn()}
+=======
+>>>>>>> Правки тестов
         />
     );
 
@@ -61,8 +70,11 @@ describe('Login component test', () => {
     const wrapper = shallow(
         <Login
           onPageChange={jest.fn()}
+<<<<<<< HEAD
           isLoggedIn={false}
           logIn={jest.fn()}
+=======
+>>>>>>> Правки тестов
         />
     );
 
