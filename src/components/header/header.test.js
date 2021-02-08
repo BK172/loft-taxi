@@ -3,23 +3,18 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Header from './header';
 
-const mockContext = jest.fn();
-jest.mock('../auth-context/auth-context', () => ({
-  Consumer: ({ children }) => children(mockContext()),
+const mockUseContext = jest.fn().mockImplementation(() => ({
+  logOut: jest.fn(),
 }));
 
-describe('Header component test', () => {
-  beforeAll(() => {
-    mockContext.mockClear();
-  });
+React.useContext = mockUseContext;
 
+describe('Header component test', () => {
   it('Should render Header correctly', () => {
     const tree = renderer.create(
       <Header
         onPageChange={jest.fn()}
-        logIn={jest.fn()}
         logOut={jest.fn()}
-        isLoggedIn={true}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -30,9 +25,7 @@ describe('Header component test', () => {
     const wrapper = shallow(
         <Header
           onPageChange={jest.fn()}
-          logIn={jest.fn()}
           logOut={jest.fn()}
-          isLoggedIn={true}
         />
     );
 

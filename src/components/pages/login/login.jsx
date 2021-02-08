@@ -5,24 +5,15 @@ import { logIn as logInAction } from '../../../store/reducers/auth/actions';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
+const Login = ({ onPageChange, isLoggedIn, logIn }) => {
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit = evt => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     const login = evt.target && evt.target.login ? evt.target.login : '';
     const password = evt.target && evt.target.password ? evt.target.password : '';
 
-    const { logIn } = this.props;
     logIn(login.value, password.value);
-  }
-
-  render() {
-    const { onPageChange, isLoggedIn } = this.props;
+  };
 
     if (isLoggedIn) {
       onPageChange('map');
@@ -39,7 +30,7 @@ class Login extends React.Component {
               <Typography component="h1" variant="h4">
                 Войти
               </Typography>
-              <form className="form__container" noValidate onSubmit={this.handleSubmit}>
+            <form className="form__container" noValidate onSubmit={handleSubmit}>
                 <TextField
                   margin="normal"
                   fullWidth
@@ -81,8 +72,7 @@ class Login extends React.Component {
         </div>
       </div>
     );
-  }
-}
+};
 
 Login.propTypes = {
   onPageChange: PropTypes.func.isRequired,

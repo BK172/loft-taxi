@@ -5,22 +5,12 @@ import { logOut } from '../../store/reducers/auth/actions';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import logo from '../../assets/images/logo-header.svg';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
+const Header = ({ logOut, onPageChange }) => {
 
-    this.onLogOut = this.onLogOut.bind(this);
-  }
-
-  onLogOut = () => {
-    const { logOut, onPageChange } = this.props;
-
+  const onLogOut = () => {
     onPageChange('login');
     logOut();
-  }
-
-  render() {
-    const { onPageChange } = this.props;
+  };
 
     return (
       <AppBar position="static" elevation={4}>
@@ -31,12 +21,11 @@ class Header extends React.Component {
           <Button classes={{ root: 'header__button' }} type="button" color="primary" onClick={() => onPageChange('map')}>Карта</Button>
           <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>
           <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('login')}>Войти</Button>
-          <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => this.onLogOut()}>Выйти</Button>
+        <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onLogOut()}>Выйти</Button>
         </Toolbar>
       </AppBar>
     );
-  }
-}
+};
 
 Header.propTypes = {
   onPageChange: PropTypes.func.isRequired,

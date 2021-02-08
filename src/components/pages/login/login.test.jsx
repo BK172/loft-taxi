@@ -3,23 +3,20 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Login from './login';
 
-const mockContext = jest.fn();
-jest.mock('../../auth-context/auth-context', () => ({
-  Consumer: ({ children }) => children(mockContext()),
+const mockUseContext = jest.fn().mockImplementation(() => ({
+  isLoggedIn: false,
+  logIn: jest.fn(),
 }));
 
-describe('Login component test', () => {
-  beforeAll(() => {
-    mockContext.mockClear();
-  });
+React.useContext = mockUseContext;
 
+describe('Login component test', () => {
   it('Should render Login correctly', () => {
     const tree = renderer.create(
       <Login
         onPageChange={jest.fn()}
-        logIn={jest.fn()}
-        logOut={jest.fn()}
         isLoggedIn={false}
+        logIn={jest.fn()}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -30,9 +27,8 @@ describe('Login component test', () => {
     const wrapper = shallow(
         <Login
           onPageChange={jest.fn()}
-          logIn={jest.fn()}
-          logOut={jest.fn()}
           isLoggedIn={false}
+          logIn={jest.fn()}
         />
     );
 
@@ -48,9 +44,8 @@ describe('Login component test', () => {
     const wrapper = shallow(
         <Login
           onPageChange={jest.fn()}
-          logIn={jest.fn()}
-          logOut={jest.fn()}
           isLoggedIn={false}
+          logIn={jest.fn()}
         />
     );
 
@@ -66,9 +61,8 @@ describe('Login component test', () => {
     const wrapper = shallow(
         <Login
           onPageChange={jest.fn()}
-          logIn={jest.fn()}
-          logOut={jest.fn()}
           isLoggedIn={false}
+          logIn={jest.fn()}
         />
     );
 

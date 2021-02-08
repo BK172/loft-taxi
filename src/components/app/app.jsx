@@ -5,36 +5,26 @@ import Map from '../pages/map/map';
 import Profile from '../pages/profile/profile';
 import Registration from '../pages/registration/registration';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+const App = ({ isLoggedIn }) => {
+  const [currentPage, setCurrentPage] = React.useState('login');
 
-    this.PAGES = {
+  const PAGES = {
       login: (props) => <Login {...props} />,
       map: (props) => <Map {...props} />,
       profile: (props) => <Profile {...props} />,
       registration: (props) => <Registration {...props} />,
     };
 
-    this.state = { currentPage: 'login' };
-
-    this.navigateTo = this.navigateTo.bind(this);
-  }
-
-  navigateTo = currentPage => {
-    const { isLoggedIn } = this.props;
-
+  const navigateTo = currentPage => {
     if (!isLoggedIn && currentPage !== 'registration') {
-      this.setState({ currentPage: 'login' });
+      setCurrentPage('login');
     } else {
-      this.setState({ currentPage });
-    }
+      setCurrentPage(currentPage);
   }
+  };
 
-  render() {
-    return this.PAGES[this.state.currentPage]({ onPageChange: this.navigateTo });
-  }
-}
+  return PAGES[currentPage]({ onPageChange: navigateTo });
+};
 
 const mapStateToProps = ({ AUTH }) => ({
   isLoggedIn: AUTH.isLoggedIn,
