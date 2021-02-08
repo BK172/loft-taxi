@@ -9,18 +9,18 @@ const App = ({ isLoggedIn }) => {
   const [currentPage, setCurrentPage] = React.useState('login');
 
   const PAGES = {
-      login: (props) => <Login {...props} />,
-      map: (props) => <Map {...props} />,
-      profile: (props) => <Profile {...props} />,
-      registration: (props) => <Registration {...props} />,
-    };
+    login: (props) => <Login {...props} />,
+    map: (props) => <Map {...props} />,
+    profile: (props) => <Profile {...props} />,
+    registration: (props) => <Registration {...props} />,
+  };
 
   const navigateTo = currentPage => {
     if (!isLoggedIn && currentPage !== 'registration') {
       setCurrentPage('login');
     } else {
       setCurrentPage(currentPage);
-  }
+    }
   };
 
   return PAGES[currentPage]({ onPageChange: navigateTo });

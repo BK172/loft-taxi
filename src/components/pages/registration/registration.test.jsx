@@ -8,9 +8,6 @@ describe('Registration component test', () => {
     const tree = renderer.create(
       <Registration
         onPageChange={jest.fn()}
-        logIn={jest.fn()}
-        logOut={jest.fn()}
-        isLoggedIn={false}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -21,9 +18,6 @@ describe('Registration component test', () => {
     const wrapper = shallow(
         <Registration
           onPageChange={jest.fn()}
-          logIn={jest.fn()}
-          logOut={jest.fn()}
-          isLoggedIn={false}
         />
     );
 
@@ -39,9 +33,6 @@ describe('Registration component test', () => {
     const wrapper = shallow(
         <Registration
           onPageChange={jest.fn()}
-          logIn={jest.fn()}
-          logOut={jest.fn()}
-          isLoggedIn={false}
         />
     );
 
@@ -57,9 +48,6 @@ describe('Registration component test', () => {
     const wrapper = shallow(
         <Registration
           onPageChange={jest.fn()}
-          logIn={jest.fn()}
-          logOut={jest.fn()}
-          isLoggedIn={false}
         />
     );
 
