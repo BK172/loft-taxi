@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logIn as logInAction } from '../../../store/reducers/auth/actions';
+import { getIsLoggedIn } from '../../../store/reducers/auth/selectors';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
@@ -78,7 +79,7 @@ Login.propTypes = {
 };
 
 const mapStateToProps = ({ AUTH }) => ({
-  isLoggedIn: AUTH.isLoggedIn,
+  isLoggedIn: getIsLoggedIn({ AUTH }),
 });
 
 const mapDispatchToProps = { logIn: logInAction };

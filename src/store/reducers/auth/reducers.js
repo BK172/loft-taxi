@@ -5,7 +5,7 @@ const initialState = {
   isLoggedIn: false,
 };
 
-export default (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.LOG_IN:
       return extend(state, {
@@ -19,3 +19,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default authReducer;

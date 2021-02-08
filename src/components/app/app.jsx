@@ -4,6 +4,7 @@ import Login from '../pages/login/login';
 import Map from '../pages/map/map';
 import Profile from '../pages/profile/profile';
 import Registration from '../pages/registration/registration';
+import { getIsLoggedIn } from '../../store/reducers/auth/selectors';
 
 const App = ({ isLoggedIn }) => {
   const [currentPage, setCurrentPage] = React.useState('login');
@@ -27,7 +28,7 @@ const App = ({ isLoggedIn }) => {
 };
 
 const mapStateToProps = ({ AUTH }) => ({
-  isLoggedIn: AUTH.isLoggedIn,
+  isLoggedIn: getIsLoggedIn({ AUTH }),
 });
 
 export { App };
