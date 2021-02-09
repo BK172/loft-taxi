@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Paper, Button, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
-const Registration = ({ onPageChange }) => {
+const Registration = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
-    onPageChange('map');
   };
 
   return (
@@ -73,7 +72,7 @@ const Registration = ({ onPageChange }) => {
             <Typography classes={{ root: 'form__btns-container' }} variant="body1">
               <span>Уже зарегистрирован? </span>
               <span className="form__items-divider"></span>
-              <Link className="form__btn-footer" onClick={() => onPageChange('login')}>
+              <Link className="form__btn-footer" to={'/login'}>
                 Войти
               </Link>
             </Typography>
@@ -82,10 +81,6 @@ const Registration = ({ onPageChange }) => {
       </div>
     </div>
   );
-};
-
-Registration.propTypes = {
-  onPageChange: PropTypes.func.isRequired,
 };
 
 export default Registration;

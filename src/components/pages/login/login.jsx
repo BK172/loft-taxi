@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { auth as authAction } from '../../../store/reducers/auth/actions';
 import { getIsLoggedIn } from '../../../store/reducers/auth/selectors';
-import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
+import { Paper, Button, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
 const Login = ({ onPageChange, isLoggedIn, auth }) => {
@@ -63,7 +64,7 @@ const Login = ({ onPageChange, isLoggedIn, auth }) => {
             </form>
             <Typography classes={{ root: 'form__btns-container' }} variant="body1">
               <span>Новый пользователь?&nbsp;</span>
-              <Link className="form__btn-footer" onClick={() => onPageChange('registration')}>
+              <Link className="form__btn-footer" to={'/registration'}>
                 Зарегистрируйтесь
               </Link>
             </Typography>
