@@ -3,14 +3,16 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Login from './login';
 
-const mockUseContext = jest.fn().mockImplementation(() => ({
-  isLoggedIn: false,
-  logIn: jest.fn(),
+const mockContext = jest.fn();
+jest.mock('../../auth-context/auth-context', () => ({
+  Consumer: ({ children }) => children(mockContext()),
 }));
 
-React.useContext = mockUseContext;
-
 describe('Login component test', () => {
+  beforeAll(() => {
+    mockContext.mockClear();
+  });
+
   it('Should render Login correctly', () => {
     const tree = renderer.create(
       <Login
