@@ -18,15 +18,6 @@ body {
   pointer-events: none;
 }
 
-.link.MuiLink-underlineHover {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.link_active.MuiTypography-colorPrimary {
-  color: #fdbf5a;
-}
-
 /* Header */
 
 .header {
@@ -40,28 +31,9 @@ body {
   flex-grow: 1;
 }
 
-.header__button {
-  text-transform: none;
-}
-
-.header__button_active {
+/* .header__button_active {
   color: #fdbf5a;
-}
-
-/* Button */
-
-.btn.MuiButton-containedPrimary {
-  color: #000000de;
-  background-color: #fdbf5a;
-}
-
-.btn.MuiButton-containedPrimary:hover {
-  background-color: #ffa842;
-}
-
-.btn_active {
-  color: #fdbf5a;
-}
+} */
 
 /* Login page */
 
@@ -95,7 +67,7 @@ body {
   background-size: cover;
 }
 
-.login-layout__card.MuiPaper-rounded {
+.login-layout .login-layout__card {
   width: 520px;
   padding: 48px 0;
   border-radius: 20px;
@@ -103,26 +75,15 @@ body {
 
 /* Form */
 
-.form {
+.form__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 100px 0 98px;
 }
 
-.form__title.MuiTypography-h4 {
-  margin-bottom: 2.75rem;
-  font-size: 30px;
-  text-align: center;
-  font-weight: 700;
-}
-
 .form__container {
   margin-bottom: 24px;
-}
-
-.form__container label.Mui-focused {
-  color: #828282;
 }
 
 .form__items-two-col {
@@ -130,13 +91,8 @@ body {
   justify-content: space-between;
 }
 
-.form__submit-btn.MuiButtonBase-root {
+.form__wrapper .form__submit-btn {
   margin-top: 72px;
-  border-radius: 40px;
-  font-size: 1.3rem;
-  font-weight: 400;
-  letter-spacing: 0px;
-  text-transform: none;
 }
 
 .form__btns-container {
@@ -147,4 +103,20 @@ body {
 
 .form__items-divider {
   min-width: 8px;
+}
+
+/* Map */
+
+.map__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.map__map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

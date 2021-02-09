@@ -1,12 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
 class Registration extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.onPageChange('map');
-  };
+  }
 
   render() {
     const { onPageChange } = this.props;
@@ -17,9 +24,9 @@ class Registration extends React.Component {
           <img src={logo} alt="LoftTaxi logo" />
         </div>
         <div className="login-layout__right">
-          <Paper className="login-layout__card" elevation={5}>
-            <div className="form">
-              <Typography className="form__title" component="h1" variant="h4">
+          <Paper classes={{ root: 'login-layout__card' }} elevation={5}>
+            <div className="form__wrapper">
+              <Typography component="h1" variant="h4">
                 Регистрация
               </Typography>
               <form className="form__container" noValidate onSubmit={this.handleSubmit}>
@@ -61,7 +68,7 @@ class Registration extends React.Component {
                   required
                 />
                 <Button
-                  className="btn form__submit-btn"
+                  className="form__submit-btn"
                   fullWidth
                   disableElevation
                   variant="contained"
@@ -72,10 +79,10 @@ class Registration extends React.Component {
                   Зарегистрироваться
                 </Button>
               </form>
-              <Typography className="form__btns-container" variant="body1">
+              <Typography classes={{ root: 'form__btns-container' }} variant="body1">
                 <span>Уже зарегистрирован? </span>
                 <span className="form__items-divider"></span>
-                <Link className="link link_active" onClick={() => onPageChange('login')}>
+                <Link className="form__btn-footer" onClick={() => onPageChange('login')}>
                   Войти
                 </Link>
               </Typography>
@@ -84,7 +91,11 @@ class Registration extends React.Component {
         </div>
       </div>
     );
-  };
+  }
 }
+
+Registration.propTypes = {
+  onPageChange: PropTypes.func.isRequired,
+};
 
 export default Registration;

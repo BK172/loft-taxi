@@ -3,29 +3,28 @@ import Login from '../pages/login/login';
 import Map from '../pages/map/map';
 import Profile from '../pages/profile/profile';
 import Registration from '../pages/registration/registration';
+import { AuthContext } from '../auth-context/auth-context';
 
-class App extends React.Component {
-  state = { currentPage: 'login' };
+const App = () => {
+  const [currentPage, setCurrentPage] = React.useState('login');
+  const { isLoggedIn } = React.useContext(AuthContext);
 
-  navigateTo = (currentPage) => {
-    this.setState({ currentPage });
+  const PAGES = {
+    login: (props) => <Login {...props} />,
+    map: (props) => <Map {...props} />,
+    profile: (props) => <Profile {...props} />,
+    registration: (props) => <Registration {...props} />,
   };
 
-  getPage = (page) => {
-    if (page === 'login') {
-      return <Login onPageChange={this.navigateTo} />;
-    } else if (page === 'map') {
-      return <Map onPageChange={this.navigateTo} />;
-    } else if (page === 'profile') {
-      return <Profile onPageChange={this.navigateTo} />;
-    } else if (page === 'registration') {
-      return <Registration onPageChange={this.navigateTo} />;
+  const navigateTo = currentPage => {
+    if (!isLoggedIn && currentPage !== 'registration') {
+      setCurrentPage('login');
+    } else {
+      setCurrentPage(currentPage);
     }
   };
 
-  render() {
-    return this.getPage(this.state.currentPage);
-  }
-}
+  return PAGES[currentPage]({ onPageChange: navigateTo });
+};
 
 export default App;

@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../../header/header';
 
-const Profile = ({onPageChange}) => {
+const Profile = ({ onPageChange }) => {
   return (
     <div className="wrapper">
       <Header onPageChange={onPageChange} />
@@ -12,6 +13,14 @@ const Profile = ({onPageChange}) => {
       </main>
     </div>
   );
+};
+
+Profile.defaultProps = {
+  onPageChange: ()=>{},
+};
+
+Profile.propTypes = {
+  onPageChange: PropTypes.func.isRequired,
 };
 
 export default Profile;
