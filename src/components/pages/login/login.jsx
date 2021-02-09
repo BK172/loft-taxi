@@ -7,31 +7,17 @@ import { getIsLoggedIn } from '../../../store/reducers/auth/selectors';
 import { Paper, Button, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
-<<<<<<< HEAD
 const Login = ({ isLoggedIn, auth }) => {
-=======
-const Login = ({ onPageChange }) => {
-  const { logIn, isLoggedIn } = React.useContext(AuthContext);
-
->>>>>>> Правки тестов
   const handleSubmit = evt => {
     evt.preventDefault();
     const login = evt.target && evt.target.login ? evt.target.login : '';
     const password = evt.target && evt.target.password ? evt.target.password : '';
 
-<<<<<<< HEAD
     auth(login.value, password.value);
   };
 
   if (isLoggedIn) {
     return <Redirect to={'/map'} />
-=======
-    logIn(login.value, password.value);
-  };
-
-  if (isLoggedIn) {
-    onPageChange('map');
->>>>>>> Правки тестов
   }
 
   return (
@@ -45,11 +31,7 @@ const Login = ({ onPageChange }) => {
             <Typography component="h1" variant="h4">
               Войти
             </Typography>
-<<<<<<< HEAD
           <form className="form__container" noValidate onSubmit={handleSubmit}>
-=======
-            <form className="form__container" noValidate onSubmit={handleSubmit}>
->>>>>>> Правки тестов
               <TextField
                 margin="normal"
                 fullWidth
@@ -82,11 +64,7 @@ const Login = ({ onPageChange }) => {
             </form>
             <Typography classes={{ root: 'form__btns-container' }} variant="body1">
               <span>Новый пользователь?&nbsp;</span>
-<<<<<<< HEAD
               <Link className="form__btn-footer" to={'/registration'}>
-=======
-              <Link className="form__btn-footer" onClick={() => onPageChange('registration')}>
->>>>>>> Правки тестов
                 Зарегистрируйтесь
               </Link>
             </Typography>
