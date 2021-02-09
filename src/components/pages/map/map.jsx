@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import Header from '../../header/header';
 
-class Map extends Component {
+class Map extends React.Component {
   constructor(props) {
     super(props);
 
