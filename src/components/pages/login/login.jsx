@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { auth as authAction } from '../../../store/reducers/auth/actions';
 import { getIsLoggedIn } from '../../../store/reducers/auth/selectors';
 import { Paper, Button, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
-const Login = ({ onPageChange, isLoggedIn, auth }) => {
+const Login = ({ isLoggedIn, auth }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     const login = evt.target && evt.target.login ? evt.target.login : '';
@@ -17,7 +17,7 @@ const Login = ({ onPageChange, isLoggedIn, auth }) => {
   };
 
   if (isLoggedIn) {
-    onPageChange('map');
+    return <Redirect to={'/map'} />
   }
 
   return (
@@ -76,7 +76,6 @@ const Login = ({ onPageChange, isLoggedIn, auth }) => {
 };
 
 Login.propTypes = {
-  onPageChange: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   auth: PropTypes.func.isRequired,
 };

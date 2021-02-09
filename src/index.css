@@ -31,7 +31,13 @@ body {
   flex-grow: 1;
 }
 
-.header__button_active {
+.header__button a:-webkit-any-link {
+  color: inherit;
+  cursor: inherit;
+  text-decoration: inherit;
+}
+
+.header__button a.header__link_active {
   color: #fdbf5a;
 }
 
@@ -103,6 +109,12 @@ body {
 
 .form__items-divider {
   min-width: 8px;
+}
+
+.form__btn-footer {
+  text-decoration: none;
+  color: #fdbf5a;
+  cursor: pointer;
 }
 
 /* Map */

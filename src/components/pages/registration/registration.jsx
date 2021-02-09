@@ -72,7 +72,7 @@ const Registration = () => {
             <Typography classes={{ root: 'form__btns-container' }} variant="body1">
               <span>Уже зарегистрирован? </span>
               <span className="form__items-divider"></span>
-              <Link className="form__btn-footer" to={'/login'}>
+              <Link className="form__btn-footer" to={'/'}>
                 Войти
               </Link>
             </Typography>

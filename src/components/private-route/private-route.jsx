@@ -4,14 +4,20 @@ import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import { getIsLoggedIn } from '../../store/reducers/auth/selectors';
 
-const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => (
+const PrivateRoute = ({
+  component: Component,
+  isLoggedIn,
+  exact,
+  path,
+}) => (
   <Route
-    {...rest}
+    path={path}
+    exact={exact}
     render={(props) =>
       isLoggedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/" />
+        <Redirect to={'/'} />
       )
     }
   />
