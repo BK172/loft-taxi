@@ -76,6 +76,8 @@ const Login = ({ onPageChange, isLoggedIn, auth }) => {
 
 Login.propTypes = {
   onPageChange: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  auth: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ AUTH }) => ({

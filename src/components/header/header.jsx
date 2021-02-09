@@ -20,7 +20,7 @@ const Header = ({ logOut, onPageChange }) => {
         <Button classes={{ root: 'header__button' }} type="button" color="primary" onClick={() => onPageChange('map')}>Карта</Button>
         <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>
         <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('login')}>Войти</Button>
-      <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onLogOut()}>Выйти</Button>
+        <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onLogOut()}>Выйти</Button>
       </Toolbar>
     </AppBar>
   );
@@ -28,6 +28,7 @@ const Header = ({ logOut, onPageChange }) => {
 
 Header.propTypes = {
   onPageChange: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = { logOut };
