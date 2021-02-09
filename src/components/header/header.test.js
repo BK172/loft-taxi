@@ -3,13 +3,16 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Header from './header';
 
-const mockUseContext = jest.fn().mockImplementation(() => ({
-  logOut: jest.fn(),
+const mockContext = jest.fn();
+jest.mock('../auth-context/auth-context', () => ({
+  Consumer: ({ children }) => children(mockContext()),
 }));
 
-React.useContext = mockUseContext;
-
 describe('Header component test', () => {
+  beforeAll(() => {
+    mockContext.mockClear();
+  });
+
   it('Should render Header correctly', () => {
     const tree = renderer.create(
       <Header
