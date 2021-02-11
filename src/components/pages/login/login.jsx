@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { auth as authAction } from '../../../store/reducers/auth/actions';
+import { auth } from '../../../store/reducers/auth/actions';
 import { getIsLoggedIn } from '../../../store/reducers/auth/selectors';
 import { Paper, Button, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
@@ -84,7 +84,7 @@ const mapStateToProps = ({ AUTH }) => ({
   isLoggedIn: getIsLoggedIn({ AUTH }),
 });
 
-const mapDispatchToProps = { auth: authAction };
+const mapDispatchToProps = { auth };
 
 export { Login };
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
