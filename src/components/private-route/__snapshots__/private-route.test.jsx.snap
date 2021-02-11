@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrivateRoute component test Should render PrivateRoute correctly if isLoggedIn false 1`] = `null`;
+
+exports[`PrivateRoute component test Should render PrivateRoute correctly if isLoggedIn true 1`] = `null`;
