@@ -1,22 +1,21 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import { makeInitialStateMock } from '../../utils';
 import App from './app';
 
-const mockContext = jest.fn();
-jest.mock('../auth-context/auth-context', () => ({
-  Consumer: ({ children }) => children(mockContext()),
-}));
-
 describe('App component test', () => {
-  beforeAll(() => {
-    mockContext.mockClear();
-  });
+  const store = configureStore()(makeInitialStateMock());
 
   it('Should render App correctly', () => {
     const tree = renderer.create(
-      <App
-        isLoggedIn={false}
-      />
+        <Provider store={store}>
+          <MemoryRouter>
+            <App />
+          </MemoryRouter>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

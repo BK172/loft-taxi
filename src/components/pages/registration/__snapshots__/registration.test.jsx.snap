@@ -224,10 +224,9 @@ exports[`Registration component test Should render Registration correctly 1`] = 
             className="form__items-divider"
           />
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover form__btn-footer MuiTypography-colorPrimary"
-            onBlur={[Function]}
+            className="form__btn-footer"
+            href="/"
             onClick={[Function]}
-            onFocus={[Function]}
           >
             Войти
           </a>

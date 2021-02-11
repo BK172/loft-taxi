@@ -138,10 +138,9 @@ exports[`App component test Should render App correctly 1`] = `
             Новый пользователь? 
           </span>
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover form__btn-footer MuiTypography-colorPrimary"
-            onBlur={[Function]}
+            className="form__btn-footer"
+            href="/registration"
             onClick={[Function]}
-            onFocus={[Function]}
           >
             Зарегистрируйтесь
           </a>

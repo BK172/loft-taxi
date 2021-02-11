@@ -19,10 +19,9 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         />
       </div>
       <button
-        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-textPrimary"
+        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
-        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -39,14 +38,19 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         <span
           className="MuiButton-label"
         >
-          Карта
+          <a
+            aria-current={null}
+            href="/map"
+            onClick={[Function]}
+          >
+            Карта
+          </a>
         </span>
       </button>
       <button
         className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
-        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -63,31 +67,13 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         <span
           className="MuiButton-label"
         >
-          Профиль
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          Войти
+          <a
+            aria-current={null}
+            href="/profile"
+            onClick={[Function]}
+          >
+            Профиль
+          </a>
         </span>
       </button>
       <button
