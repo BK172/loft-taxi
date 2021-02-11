@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store, persistor } from './store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 import App from './components/app/app';
 import reportWebVitals from './reportWebVitals';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -14,7 +15,9 @@ ReactDOM.render(
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <Provider store={store}>
-          <App />
+          <PersistGate loading={'Загрузка ...'} persistor={persistor}>
+            <App />
+          </PersistGate>
         </Provider>
       </BrowserRouter>
     </MuiThemeProvider>
