@@ -12,10 +12,78 @@ body {
   overflow: hidden;
 }
 
+.wrapper__map {
+  position: absolute;
+  top: 73px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: url('./assets/images/bgr-map.jpg');
+}
+
 .main {
   position: relative;
   height: calc(100vh - 73px);
   pointer-events: none;
+}
+
+.main:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(28, 26, 25);
+  opacity: 0.5;
+}
+
+.main__section {
+  pointer-events: all;
+}
+
+.main__card {
+  position: absolute;
+  width: 802px;
+  top: 50%;
+  left: 50%;
+  padding: 60px 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+/* Main form */
+
+.main-form__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.main-form__container {
+  margin-right: 100px;
+}
+
+.main-form__container label + .MuiInput-formControl {
+  margin-top: 16px;
+}
+
+.main-form__items-two-col {
+  display: flex;
+}
+
+.main-form__items-two-col .main-form__card-date {
+  margin-right: 35px;
+}
+
+.main-form__btn-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.main-form__submit-btn {
+  width: 350px;
 }
 
 /* Header */
@@ -79,7 +147,7 @@ body {
   border-radius: 20px;
 }
 
-/* Form */
+/* Login Form */
 
 .form__wrapper {
   display: flex;
@@ -101,17 +169,17 @@ body {
   margin-top: 72px;
 }
 
-.form__btns-container {
+.form__items-divider {
+  min-width: 8px;
+}
+
+.form__footer {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.form__items-divider {
-  min-width: 8px;
-}
-
-.form__btn-footer {
+.form__footer-link {
   text-decoration: none;
   color: #fdbf5a;
   cursor: pointer;
@@ -131,4 +199,64 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+/* Credit card */
+
+.credit-card__paper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 347px;
+  height: 182px;
+  padding: 18px 28px;
+  border-radius: 10px;
+}
+
+.credit-card__paper .credit-card__number {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.credit-card__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.credit-card__mc-logo {
+  display: flex;
+  width: 38px;
+  height: 28px;
+}
+
+.credit-card__mc-logo:before,
+.credit-card__mc-logo:after {
+  content: '';
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  background-color: #f1f1f1;
+}
+
+.credit-card__mc-logo:after {
+  margin-left: -10px;
+}
+
+.credit-card__logo {
+  width: 34px;
+  height: 34px;
+  background-image: url('./assets/images/loft-card.png');
+  background-size: 34px 34px;
+}
+
+.credit-card__chip {
+  width: 29px;
+  height: 26px;
+  background-image: url('./assets/images/chip.png');
+  background-size: 29px 26px;
 }

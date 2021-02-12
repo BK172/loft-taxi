@@ -31,7 +31,7 @@ const Login = ({ isLoggedIn, auth }) => {
             <Typography component="h1" variant="h4">
               Войти
             </Typography>
-          <form className="form__container" noValidate onSubmit={handleSubmit}>
+            <form className="form__container" onSubmit={handleSubmit}>
               <TextField
                 margin="normal"
                 fullWidth
@@ -62,9 +62,9 @@ const Login = ({ isLoggedIn, auth }) => {
                 Войти
               </Button>
             </form>
-            <Typography classes={{ root: 'form__btns-container' }} variant="body1">
+            <Typography classes={{ root: 'form__footer' }} variant="body1">
               <span>Новый пользователь?&nbsp;</span>
-              <Link className="form__btn-footer" to={'/registration'}>
+              <Link className="form__footer-link" to={'/registration'}>
                 Зарегистрируйтесь
               </Link>
             </Typography>

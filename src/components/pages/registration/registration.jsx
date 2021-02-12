@@ -19,7 +19,7 @@ const Registration = () => {
             <Typography component="h1" variant="h4">
               Регистрация
             </Typography>
-            <form className="form__container" noValidate onSubmit={handleSubmit}>
+            <form className="form__container" onSubmit={handleSubmit}>
               <TextField
                 margin="normal"
                 fullWidth
@@ -69,10 +69,10 @@ const Registration = () => {
                 Зарегистрироваться
               </Button>
             </form>
-            <Typography classes={{ root: 'form__btns-container' }} variant="body1">
+            <Typography classes={{ root: 'form__footer' }} variant="body1">
               <span>Уже зарегистрирован? </span>
               <span className="form__items-divider"></span>
-              <Link className="form__btn-footer" to={'/'}>
+              <Link className="form__footer-link" to={'/'}>
                 Войти
               </Link>
             </Typography>

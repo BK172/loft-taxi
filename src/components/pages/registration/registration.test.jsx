@@ -13,9 +13,7 @@ describe('Registration component test', () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MemoryRouter>
-            <Registration
-              onSubmitAction={jest.fn()}
-            />
+            <Registration />
           </MemoryRouter>
         </Provider>
     ).toJSON();
