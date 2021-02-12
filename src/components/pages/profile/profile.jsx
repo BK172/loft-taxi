@@ -21,36 +21,30 @@ class Profile extends React.Component {
     this.props.getCard();
   }
 
-  static getDerivedStateFromProps(props, state) {
-    const { cvc, cardName, cardNumber, expiryDate } = props;
+  componentDidUpdate(prevProps, prevState) {
+    const { cvc, cardName, cardNumber, expiryDate } = this.props;
 
     if (
-      state.cvc !== cvc ||
-      state.cardName !== cardName ||
-      state.cardNumber !== cardNumber ||
-      state.expiryDate !== expiryDate
+      prevProps.cvc !== cvc ||
+      prevProps.cardName !== cardName ||
+      prevProps.cardNumber !== cardNumber ||
+      prevProps.expiryDate !== expiryDate
     ) {
-      return {
-        cvc: cvc,
-        cardName: cardName,
-        cardNumber: cardNumber,
-        expiryDate: expiryDate,
-      };
+      this.setState({
+        cvc,
+        cardName,
+        cardNumber,
+        expiryDate,
+      });
     }
 
-    return null;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { cvc, cardName, cardNumber, expiryDate } = this.state;
-
     if (
-      prevState.cvc !== cvc ||
-      prevState.cardName !== cardName ||
-      prevState.cardNumber !== cardNumber ||
-      prevState.expiryDate !== expiryDate
+      prevState.cvc !== this.state.cvc ||
+      prevState.cardName !== this.state.cardName ||
+      prevState.cardNumber !== this.state.cardNumber ||
+      prevState.expiryDate !== this.state.expiryDate
     ) {
-      if (cvc && cardName && cardNumber && expiryDate) {
+      if (this.state.cvc && this.state.cardName && this.state.cardNumber && this.state.expiryDate) {
         this.setState({isFormValid: true});
       } else {
         this.setState({isFormValid: false});
@@ -214,11 +208,18 @@ class Profile extends React.Component {
   }
 }
 
+Profile.defaultProps = {
+  cvc: '',
+  cardName: '',
+  cardNumber: '',
+  expiryDate: '',
+}
+
 Profile.propTypes = {
-  cvc: PropTypes.string,
-  cardName: PropTypes.string,
-  cardNumber: PropTypes.string,
-  expiryDate: PropTypes.string,
+  cvc: PropTypes.string.isRequired,
+  cardName: PropTypes.string.isRequired,
+  cardNumber: PropTypes.string.isRequired,
+  expiryDate: PropTypes.string.isRequired,
   getCard: PropTypes.func.isRequired,
   saveCard: PropTypes.func.isRequired,
 };
