@@ -9,34 +9,34 @@ export const serverLogin = async (email, password) => {
   }).then(response => response.data.success);
 };
 
-export const serverRegister = async (email, password, userName, userSurname) => {
-  return axios('https://loft-taxi.glitch.me/auth', {
+export const serverRegister = async (email, firstName, surname, password) => {
+  return axios('https://loft-taxi.glitch.me/register', {
     method: 'post',
     params: {
       email,
       password,
-      name: userName,
-      surname: userSurname,
+      name: firstName,
+      surname,
     },
-  }).then(response => response.data.success);
-};
-
-export const serverSaveCard = async (expiryDate, cardNumber, cardName, token, cvc) => {
-  return axios('https://loft-taxi.glitch.me/card', {
-    method: 'post',
-    params: {
-      expiryDate,
-      cardNumber,
-      cardName,
-      token,
-      cvc,
-    },
-  }).then(response => response.data.success);
+  }).then(response => response.data);
 };
 
 export const serverGetCard = async (token) => {
   return axios('https://loft-taxi.glitch.me/card', {
     params: {
+      token,
+    },
+  }).then(response => response.data);
+};
+
+export const serverSaveCard = async (cvc, cardName, cardNumber, expiryDate, token) => {
+  return axios('https://loft-taxi.glitch.me/card', {
+    method: 'post',
+    params: {
+      cvc,
+      cardName,
+      cardNumber,
+      expiryDate,
       token,
     },
   }).then(response => response.data.success);

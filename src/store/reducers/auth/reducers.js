@@ -3,6 +3,7 @@ import { extend } from '../../../utils';
 
 const initialState = {
   isLoggedIn: false,
+  authToken: 'AUTH_TOKEN',
 };
 
 const authReducer = (state = initialState, action) => {
@@ -14,6 +15,10 @@ const authReducer = (state = initialState, action) => {
     case ActionType.LOG_OUT:
       return extend(state, {
         isLoggedIn: false
+      });
+    case ActionType.SAVE_AUTH_TOKEN:
+      return extend(state, {
+        authToken: action.payload,
       });
     default:
       return state;

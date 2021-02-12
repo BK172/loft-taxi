@@ -12,15 +12,29 @@ class Profile extends React.Component {
           <section className="main__section">
             <Paper classes={{ root: 'main__card' }} elevation={1} square="false">
               <form onSubmit={this.handleSubmit}>
-              <Typography component="h1" variant="h4" align="center" paragraph="false">Профиль</Typography>
-              <Typography component="p" variant="body1" align="center" color="secondary">Введите платежные данные</Typography>
+              <Typography
+                component="h1"
+                variant="h4"
+                align="center"
+                paragraph="false"
+              >
+                Профиль
+              </Typography>
+              <Typography
+                component="p"
+                variant="body1"
+                align="center"
+                color="secondary"
+              >
+                Введите платежные данные
+              </Typography>
               <div className="main-form__wrapper">
                 <div className="main-form__container">
                   <TextField
                     margin="normal"
                     fullWidth
-                    id="cardUserName"
-                    name="cardUserName"
+                    id="cardName"
+                    name="cardName"
                     label="Имя владельца"
                     autoFocus
                     required
@@ -38,16 +52,16 @@ class Profile extends React.Component {
                       classes={{ root: 'main-form__card-date' }}
                       margin="normal"
                       fullWidth
-                      id="cardDate"
-                      name="cardDate"
+                      id="expiryDate"
+                      name="expiryDate"
                       label="MM/YY"
                       required
                     />
                     <TextField
                       margin="normal"
                       fullWidth
-                      id="cardCVC"
-                      name="cardCVC"
+                      id="cvc"
+                      name="cvc"
                       label="CVC"
                       required
                     />
@@ -61,7 +75,13 @@ class Profile extends React.Component {
                       <Typography component="p" variant="body1">01/11</Typography>
                     </div>
                     <div>
-                      <Typography classes={{ root: 'credit-card__number' }} component="p" variant="body1">1111111111111111</Typography>
+                      <Typography
+                        classes={{ root: 'credit-card__number' }}
+                        component="p"
+                        variant="body1"
+                      >
+                        1111111111111111
+                      </Typography>
                     </div>
                     <div className="credit-card__section">
                       <div className="credit-card__chip"></div>
