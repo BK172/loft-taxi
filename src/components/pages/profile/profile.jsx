@@ -181,16 +181,18 @@ class Profile extends React.Component {
               <div className="main-form__btn-footer">
                 {this.state.isCardSaved ? (
                   <div className="main-form__submit-btn-container">
-                    <Button
-                      className="main-form__submit-btn"
-                      disableElevation
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      type="button"
-                    >
-                      <Link to={'/map'}>Перейти на карту</Link>
-                    </Button>
+                    <Link className="main-form__submit-link" to={'/map'}>
+                      <Button
+                        className="main-form__submit-btn"
+                        disableElevation
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        type="button"
+                      >
+                        Перейти на карту
+                      </Button>
+                    </Link>
                   </div>
                 ) : (
                   <Button

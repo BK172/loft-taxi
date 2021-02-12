@@ -94,7 +94,7 @@ body {
   width: 350px;
 }
 
-.main-form__submit-btn a {
+.main-form__submit-link {
   text-decoration: none;
   color: inherit;
 }
