@@ -2,10 +2,10 @@ import { ActionType } from './actions';
 import { extend } from '../../../utils';
 
 const initialState = {
-  cvc: undefined,
-  cardName: undefined,
-  cardNumber: undefined,
-  expiryDate: undefined,
+  cvc: '',
+  cardName: '',
+  cardNumber: '',
+  expiryDate: '',
 };
 
 const cardReducer = (state = initialState, action) => {

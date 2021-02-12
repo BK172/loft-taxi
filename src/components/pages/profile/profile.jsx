@@ -38,13 +38,15 @@ class Profile extends React.Component {
       });
     }
 
+    const { s_cvc, s_cardName, s_cardNumber, s_expiryDate } = this.state;
+
     if (
-      prevState.cvc !== this.state.cvc ||
-      prevState.cardName !== this.state.cardName ||
-      prevState.cardNumber !== this.state.cardNumber ||
-      prevState.expiryDate !== this.state.expiryDate
+      prevState.cvc !== s_cvc ||
+      prevState.cardName !== s_cardName ||
+      prevState.cardNumber !== s_cardNumber ||
+      prevState.expiryDate !== s_expiryDate
     ) {
-      if (this.state.cvc && this.state.cardName && this.state.cardNumber && this.state.expiryDate) {
+      if (s_cvc && s_cardName && s_cardNumber && s_expiryDate) {
         this.setState({isFormValid: true});
       } else {
         this.setState({isFormValid: false});
