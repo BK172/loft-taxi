@@ -33,7 +33,7 @@ const Registration = () => {
                 <TextField
                   margin="normal"
                   fullWidth
-                  id="name"
+                  id="firstName"
                   name="firstName"
                   label="Имя"
                   required
@@ -42,8 +42,8 @@ const Registration = () => {
                 <TextField
                   margin="normal"
                   fullWidth
-                  id="surName"
-                  name="surName"
+                  id="surname"
+                  name="surname"
                   label="Фамилия"
                   required
                 />

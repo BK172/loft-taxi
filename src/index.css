@@ -43,7 +43,11 @@ body {
   pointer-events: all;
 }
 
-.main__card {
+.main__section .main__section-title {
+  margin-bottom: 16px;
+}
+
+.main__section .main__card {
   position: absolute;
   width: 802px;
   top: 50%;
@@ -82,8 +86,17 @@ body {
   justify-content: center;
 }
 
+.main-form__submit-btn-container {
+  padding-top: 40px;
+}
+
 .main-form__submit-btn {
   width: 350px;
+}
+
+.main-form__submit-btn a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Header */
@@ -203,7 +216,7 @@ body {
 
 /* Credit card */
 
-.credit-card__paper {
+.credit-card__container .credit-card__paper {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
