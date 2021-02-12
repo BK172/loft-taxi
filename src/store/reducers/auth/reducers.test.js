@@ -1,5 +1,5 @@
-import authReducer from "./reducers";
-import { ActionType } from "./actions";
+import authReducer from './reducers';
+import { ActionType } from './actions';
 
 jest.mock(`../root-reducer`);
 
@@ -18,6 +18,16 @@ describe(`Reducer authReducer works correctly`, () => {
       type: ActionType.LOG_IN
     })).toEqual({
       isLoggedIn: true
+    });
+  });
+
+  it(`Should update isLoggedIn to false`, () => {
+    expect(authReducer({
+      isLoggedIn: false,
+    }, {
+      type: ActionType.LOG_OUT
+    })).toEqual({
+      isLoggedIn: false
     });
   });
 

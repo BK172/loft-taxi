@@ -13,7 +13,14 @@ describe('Profile component test', () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MemoryRouter>
-            <Profile />
+            <Profile
+              cvc={'123'}
+              cardName={'CardName'}
+              cardNumber={'111111111111'}
+              expiryDate={'01/11'}
+              getCard={jest.fn()}
+              saveCard={jest.fn()}
+            />
           </MemoryRouter>
         </Provider>
     ).toJSON();
