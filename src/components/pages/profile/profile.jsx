@@ -38,7 +38,12 @@ class Profile extends React.Component {
       });
     }
 
-    const { s_cvc, s_cardName, s_cardNumber, s_expiryDate } = this.state;
+    const {
+      cvc: s_cvc,
+      cardName: s_cardName,
+      cardNumber: s_cardNumber,
+      expiryDate: s_expiryDate
+    } = this.state;
 
     if (
       prevState.cvc !== s_cvc ||
