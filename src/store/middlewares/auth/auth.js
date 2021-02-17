@@ -4,9 +4,10 @@ import { serverLogin, serverRegister } from '../../../api';
 export const authMiddleware = (store) => (next) => async (action) => {
   if (action.type === ActionType.AUTH) {
     const { email, password } = action.payload;
-    const success = await serverLogin(email, password);
+    const data = await serverLogin(email, password);
 
-    if (success) {
+    if (data && data.success) {
+      store.dispatch(saveAuthToken(data.token));
       store.dispatch(logIn());
     }
   }

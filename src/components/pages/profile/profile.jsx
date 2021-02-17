@@ -197,7 +197,7 @@ class Profile extends React.Component {
                 ) : (
                   <Button
                     className="main-form__submit-btn"
-                    // disabled={this.state.isFormValid ? true : false}
+                    disabled={this.state.isFormValid ? false : true}
                     disableElevation
                     variant="contained"
                     color="primary"

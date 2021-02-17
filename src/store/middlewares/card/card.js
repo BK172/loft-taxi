@@ -7,7 +7,7 @@ export const getCardDataMiddleware = ({ dispatch, getState }) => (next) => async
     const token = getAuthToken(getState());
     const data = await serverGetCard(token);
 
-    if (data.cardNumber) {
+    if (data && data.cardNumber) {
       dispatch(saveCard(data));
     }
   }
@@ -20,7 +20,7 @@ export const saveCardDataMiddleware = ({ dispatch, getState }) => (next) => asyn
     const token = getAuthToken(getState());
     const { cvc, cardName, cardNumber, expiryDate } = action.payload;
 
-    const success = await serverSaveCard({
+    const data = await serverSaveCard({
       cvc,
       cardName,
       cardNumber,
@@ -28,9 +28,9 @@ export const saveCardDataMiddleware = ({ dispatch, getState }) => (next) => asyn
       token,
     });
 
-    // if (success) {
-    //   dispatch();
-    // }
+    if (data && data.success) {
+      dispatch(saveCard(data));
+    }
   }
 
   return next(action);

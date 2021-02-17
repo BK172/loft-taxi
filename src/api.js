@@ -2,11 +2,12 @@ import axios from 'axios';
 
 export const serverLogin = async (email, password) => {
   return axios('https://loft-taxi.glitch.me/auth', {
+    method: 'post',
     params: {
-      username: email,
+      email,
       password,
     },
-  }).then(response => response.data.success);
+  }).then(response => response.data);
 };
 
 export const serverRegister = async (email, firstName, surname, password) => {
@@ -39,5 +40,5 @@ export const serverSaveCard = async (cvc, cardName, cardNumber, expiryDate, toke
       expiryDate,
       token,
     },
-  }).then(response => response.data.success);
+  }).then(response => response.data);
 };
