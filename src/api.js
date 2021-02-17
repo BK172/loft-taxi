@@ -2,9 +2,9 @@ import axios from 'axios';
 
 export const serverLogin = async (email, password) => {
   return axios('https://loft-taxi.glitch.me/auth', {
-    method: 'post',
+    // method: 'post',
     params: {
-      email,
+      username: email,
       password,
     },
   }).then(response => response.data);
