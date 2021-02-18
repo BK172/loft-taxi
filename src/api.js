@@ -25,7 +25,8 @@ export const serverRegister = async (email, firstName, surname, password) => {
 export const serverGetCard = async (token) => {
   return axios('https://loft-taxi.glitch.me/card', {
     params: {
-      token,
+      // token,
+      token: 'AUTH_TOKEN',
     },
   }).then(response => response.data);
 };
@@ -38,7 +39,8 @@ export const serverSaveCard = async (cvc, cardName, cardNumber, expiryDate, toke
       cardName,
       cardNumber,
       expiryDate,
-      token,
+      // token,
+      token: 'AUTH_TOKEN',
     },
   }).then(response => response.data);
 };
