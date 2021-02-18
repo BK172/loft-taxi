@@ -1,45 +1,45 @@
-import { authenticateSaga, registrationSaga } from './auth';
-import { auth, register, ActionType } from '../../reducers/auth/actions';
+import { getCardDataSaga, saveCardDataSaga } from './card';
+import { ActionType, getCard, registCard } from '../../reducers/card/actions';
 import { recordSaga } from '../../recordSaga';
 
-jest.mock('../../../api', () => ({ serverLogin: jest.fn(() => true) }));
-jest.mock('../../../api', () => ({ serverRegister: jest.fn(() => true) }));
+jest.mock('../../../api', () => ({ serverGetCard: jest.fn(() => true) }));
+jest.mock('../../../api', () => ({ serverSaveCard: jest.fn(() => true) }));
+jest.mock('../../reducers/auth/selectors', () => ({ getAuthToken: jest.fn(() => 'AUTH_TOKEN') }));
 
-describe('AuthSaga test', () => {
-  it('authenticates through api', async () => {
+describe('Card saga test', () => {
+  it('gets card info through api', async () => {
     const dispatched = await recordSaga(
-      authenticateSaga,
-      auth('test@test.com', '123123'),
+      getCardDataSaga,
+      getCard(),
     );
 
     expect(dispatched).toEqual([
       {
-        type: ActionType.LOG_IN,
-      },
-      {
-        type: ActionType.SAVE_AUTH_TOKEN,
+        type: ActionType.SAVE_CARD,
         payload: {
-          email: 'test@test.com',
-          password: '123123',
+          cvc: '123',
+          cardName: 'CardName',
+          cardNumber: '111111111111',
+          expiryDate: '01/11',
         },
       },
     ]);
   });
 
-  it('registrates through api', async () => {
+  it('saves card info through api', async () => {
     const dispatched = await recordSaga(
-      registrationSaga,
-      register('test@test.com', 'Fname', 'Sname', '123123'),
+      saveCardDataSaga,
+      registCard('123', 'CardName', '111111111111', '01/11'),
     );
 
     expect(dispatched).toEqual([
       {
-        type: ActionType.SAVE_AUTH_TOKEN,
+        type: ActionType.SAVE_CARD,
         payload: {
-          email: 'test@test.com',
-          firstName: 'Fname',
-          surname: 'Sname',
-          password: '123123',
+          cvc: '123',
+          cardName: 'CardName',
+          cardNumber: '111111111111',
+          expiryDate: '01/11',
         },
       },
     ]);

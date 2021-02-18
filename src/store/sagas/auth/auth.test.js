@@ -1,11 +1,11 @@
 import { authenticateSaga, registrationSaga } from './auth';
-import { auth, register, ActionType } from '../../reducers/auth/actions';
+import { ActionType, auth, register } from '../../reducers/auth/actions';
 import { recordSaga } from '../../recordSaga';
 
 jest.mock('../../../api', () => ({ serverLogin: jest.fn(() => true) }));
 jest.mock('../../../api', () => ({ serverRegister: jest.fn(() => true) }));
 
-describe('AuthSaga test', () => {
+describe('Auth saga test', () => {
   it('authenticates through api', async () => {
     const dispatched = await recordSaga(
       authenticateSaga,
