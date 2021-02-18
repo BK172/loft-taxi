@@ -13,29 +13,7 @@ describe(`Reducer cardReducer works correctly`, () => {
     });
   });
 
-  it(`Should update card data from action REGIST_CARD`, () => {
-    expect(cardReducer({
-      cvc: '',
-      cardName: '',
-      cardNumber: '',
-      expiryDate: '',
-    }, {
-      type: ActionType.REGIST_CARD,
-      payload: {
-        cvc: '123',
-        cardName: 'CardName',
-        cardNumber: '111111111111',
-        expiryDate: '01/11',
-      }
-    })).toEqual({
-      cvc: '123',
-      cardName: 'CardName',
-      cardNumber: '111111111111',
-      expiryDate: '01/11',
-    });
-  });
-
-  it(`Should update card data from action SAVE_CARD`, () => {
+  it(`Should update card data`, () => {
     expect(cardReducer({
       cvc: '',
       cardName: '',

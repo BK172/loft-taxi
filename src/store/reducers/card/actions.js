@@ -8,13 +8,13 @@ export const getCard = () => ({
   type: ActionType.GET_CARD,
 });
 
-export const registCard = (data) => ({
+export const registCard = (cvc, cardName, cardNumber, expiryDate) => ({
   type: ActionType.REGIST_CARD,
   payload: {
-    cvc: data.cvc,
-    cardName: data.cardName,
-    cardNumber: data.cardNumber,
-    expiryDate: data.expiryDate,
+    cvc,
+    cardName,
+    cardNumber,
+    expiryDate,
   },
 });
 
