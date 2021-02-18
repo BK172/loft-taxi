@@ -10,11 +10,11 @@ const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.LOG_IN:
       return extend(state, {
-        isLoggedIn: true
+        isLoggedIn: true,
       });
     case ActionType.LOG_OUT:
       return extend(state, {
-        isLoggedIn: false
+        isLoggedIn: false,
       });
     case ActionType.SAVE_AUTH_TOKEN:
       return extend(state, {
