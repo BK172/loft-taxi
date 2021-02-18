@@ -2,8 +2,8 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/root-reducer';
 import createSagaMiddleware from 'redux-saga';
 import { authSaga } from './sagas/auth/auth';
-import { registerSaga } from './sagas/register/register';
-import { getCardDataSaga, saveCardDataSaga } from './sagas/card/card';
+// import { registerSaga } from './sagas/register/register';
+// import { getCardDataSaga, saveCardDataSaga } from './sagas/card/card';
 import { persistStore, persistReducer } from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import storage from 'redux-persist/lib/storage';
@@ -26,6 +26,6 @@ export const store = createStore(persistedReducer,
 export const persistor = persistStore(store);
 
 sagaMiddleware.run(authSaga);
-sagaMiddleware.run(registerSaga);
-sagaMiddleware.run(getCardDataSaga);
-sagaMiddleware.run(saveCardDataSaga);
+// sagaMiddleware.run(registerSaga);
+// sagaMiddleware.run(getCardDataSaga);
+// sagaMiddleware.run(saveCardDataSaga);

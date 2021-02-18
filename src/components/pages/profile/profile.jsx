@@ -9,13 +9,13 @@ import { Paper, Button, Typography, TextField } from '@material-ui/core';
 
 class Profile extends React.Component {
   state = {
-    isFormValid: false,
-    isCardSaved: false,
     cvc: '',
     cardName: '',
     cardNumber: '',
     expiryDate: '',
-  };
+    isFormValid: false,
+    isCardSaved: false,
+  }
 
   componentDidMount() {
     this.props.getCard();
@@ -213,7 +213,7 @@ class Profile extends React.Component {
           </section>
         </main>
       </div>
-    )
+    );
   }
 }
 
