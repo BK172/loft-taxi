@@ -336,8 +336,8 @@ exports[`Profile component test Should render Profile correctly 1`] = `
             className="main-form__btn-footer"
           >
             <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-contained main-form__submit-btn MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation"
-              disabled={false}
+              className="MuiButtonBase-root MuiButton-root MuiButton-contained main-form__submit-btn MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation Mui-disabled Mui-disabled"
+              disabled={true}
               onBlur={[Function]}
               onDragLeave={[Function]}
               onFocus={[Function]}
@@ -349,7 +349,7 @@ exports[`Profile component test Should render Profile correctly 1`] = `
               onTouchEnd={[Function]}
               onTouchMove={[Function]}
               onTouchStart={[Function]}
-              tabIndex={0}
+              tabIndex={-1}
               type="submit"
             >
               <span

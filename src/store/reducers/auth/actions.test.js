@@ -9,7 +9,7 @@ describe(`Action creators for reducer auth work correctly`, () => {
   });
 
   test(`register works correctly`, () => {
-    expect(register('test@test.com', 'Fname', 'Sname', '123123',)).toEqual({
+    expect(register('test@test.com', 'Fname', 'Sname', '123123')).toEqual({
       type: ActionType.REGISTER,
       payload: {
         email: 'test@test.com',

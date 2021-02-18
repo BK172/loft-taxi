@@ -16,7 +16,7 @@ export const getCardDataMiddleware = ({ dispatch, getState }) => (next) => async
 };
 
 export const saveCardDataMiddleware = ({ dispatch, getState }) => (next) => async (action) => {
-  if (action.type === ActionType.SAVE_CARD) {
+  if (action.type === ActionType.REGIST_CARD) {
     const token = getAuthToken(getState());
     const { cvc, cardName, cardNumber, expiryDate } = action.payload;
 
