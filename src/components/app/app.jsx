@@ -3,28 +3,18 @@ import Login from '../pages/login/login';
 import Map from '../pages/map/map';
 import Profile from '../pages/profile/profile';
 import Registration from '../pages/registration/registration';
-import { AuthContext } from '../auth-context/auth-context';
+import PrivateRoute from '../private-route/private-route';
+import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = React.useState('login');
-  const { isLoggedIn } = React.useContext(AuthContext);
-
-  const PAGES = {
-    login: (props) => <Login {...props} />,
-    map: (props) => <Map {...props} />,
-    profile: (props) => <Profile {...props} />,
-    registration: (props) => <Registration {...props} />,
-  };
-
-  const navigateTo = currentPage => {
-    if (!isLoggedIn && currentPage !== 'registration') {
-      setCurrentPage('login');
-    } else {
-      setCurrentPage(currentPage);
-    }
-  };
-
-  return PAGES[currentPage]({ onPageChange: navigateTo });
+  return (
+    <Switch>
+      <Route exact path='/' component={Login} />
+      <Route path='/registration' component={Registration} />
+      <PrivateRoute path='/map' component={Map} />
+      <PrivateRoute path='/profile' component={Profile} />
+    </Switch>
+  );
 };
 
 export default App;

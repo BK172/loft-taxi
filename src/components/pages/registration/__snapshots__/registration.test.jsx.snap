@@ -28,7 +28,6 @@ exports[`Registration component test Should render Registration correctly 1`] = 
         </h1>
         <form
           className="form__container"
-          noValidate={true}
           onSubmit={[Function]}
         >
           <div
@@ -78,8 +77,8 @@ exports[`Registration component test Should render Registration correctly 1`] = 
               <label
                 className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
                 data-shrink={false}
-                htmlFor="name"
-                id="name-label"
+                htmlFor="firstName"
+                id="firstName-label"
               >
                 Имя
                 <span
@@ -99,7 +98,7 @@ exports[`Registration component test Should render Registration correctly 1`] = 
                   autoFocus={false}
                   className="MuiInputBase-input MuiInput-input"
                   disabled={false}
-                  id="name"
+                  id="firstName"
                   name="firstName"
                   onAnimationStart={[Function]}
                   onBlur={[Function]}
@@ -119,8 +118,8 @@ exports[`Registration component test Should render Registration correctly 1`] = 
               <label
                 className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
                 data-shrink={false}
-                htmlFor="surName"
-                id="surName-label"
+                htmlFor="surname"
+                id="surname-label"
               >
                 Фамилия
                 <span
@@ -140,8 +139,8 @@ exports[`Registration component test Should render Registration correctly 1`] = 
                   autoFocus={false}
                   className="MuiInputBase-input MuiInput-input"
                   disabled={false}
-                  id="surName"
-                  name="surName"
+                  id="surname"
+                  name="surname"
                   onAnimationStart={[Function]}
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -215,7 +214,7 @@ exports[`Registration component test Should render Registration correctly 1`] = 
           </button>
         </form>
         <p
-          className="MuiTypography-root form__btns-container MuiTypography-body1"
+          className="MuiTypography-root form__footer MuiTypography-body1"
         >
           <span>
             Уже зарегистрирован? 
@@ -224,10 +223,9 @@ exports[`Registration component test Should render Registration correctly 1`] = 
             className="form__items-divider"
           />
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover form__btn-footer MuiTypography-colorPrimary"
-            onBlur={[Function]}
+            className="form__footer-link"
+            href="/"
             onClick={[Function]}
-            onFocus={[Function]}
           >
             Войти
           </a>

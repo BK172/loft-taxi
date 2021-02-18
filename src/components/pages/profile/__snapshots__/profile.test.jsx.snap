@@ -19,10 +19,9 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         />
       </div>
       <button
-        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-textPrimary"
+        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
-        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -39,14 +38,19 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         <span
           className="MuiButton-label"
         >
-          Карта
+          <a
+            aria-current={null}
+            href="/map"
+            onClick={[Function]}
+          >
+            Карта
+          </a>
         </span>
       </button>
       <button
         className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
-        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -63,31 +67,13 @@ exports[`Profile component test Should render Profile correctly 1`] = `
         <span
           className="MuiButton-label"
         >
-          Профиль
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root header__button MuiButton-text MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          Войти
+          <a
+            aria-current={null}
+            href="/profile"
+            onClick={[Function]}
+          >
+            Профиль
+          </a>
         </span>
       </button>
       <button
@@ -116,13 +102,265 @@ exports[`Profile component test Should render Profile correctly 1`] = `
       </button>
     </div>
   </header>
+  <div
+    className="wrapper__map"
+  />
   <main
     className="main"
   >
-    <section>
-      <p>
-        Profile
-      </p>
+    <section
+      className="main__section"
+    >
+      <div
+        className="MuiPaper-root main__card MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <h1
+            className="MuiTypography-root main__section-title MuiTypography-h4 MuiTypography-alignCenter"
+          >
+            Профиль
+          </h1>
+          <p
+            className="MuiTypography-root MuiTypography-body1 MuiTypography-colorSecondary MuiTypography-alignCenter"
+          >
+            Введите платежные данные
+          </p>
+          <div
+            className="main-form__wrapper"
+          >
+            <div
+              className="main-form__container"
+            >
+              <div
+                className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+              >
+                <label
+                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+                  data-shrink={false}
+                  htmlFor="cardName"
+                  id="cardName-label"
+                >
+                  Имя владельца
+                  <span
+                    aria-hidden={true}
+                    className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                  >
+                     
+                    *
+                  </span>
+                </label>
+                <div
+                  className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+                  onClick={[Function]}
+                >
+                  <input
+                    aria-invalid={false}
+                    autoFocus={true}
+                    className="MuiInputBase-input MuiInput-input"
+                    disabled={false}
+                    id="cardName"
+                    name="cardName"
+                    onAnimationStart={[Function]}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+              >
+                <label
+                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+                  data-shrink={false}
+                  htmlFor="cardNumber"
+                  id="cardNumber-label"
+                >
+                  Номер карты
+                  <span
+                    aria-hidden={true}
+                    className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                  >
+                     
+                    *
+                  </span>
+                </label>
+                <div
+                  className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+                  onClick={[Function]}
+                >
+                  <input
+                    aria-invalid={false}
+                    autoFocus={false}
+                    className="MuiInputBase-input MuiInput-input"
+                    disabled={false}
+                    id="cardNumber"
+                    name="cardNumber"
+                    onAnimationStart={[Function]}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="main-form__items-two-col"
+              >
+                <div
+                  className="MuiFormControl-root MuiTextField-root main-form__card-date MuiFormControl-marginNormal MuiFormControl-fullWidth"
+                >
+                  <label
+                    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+                    data-shrink={false}
+                    htmlFor="expiryDate"
+                    id="expiryDate-label"
+                  >
+                    MM/YY
+                    <span
+                      aria-hidden={true}
+                      className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
+                  </label>
+                  <div
+                    className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+                    onClick={[Function]}
+                  >
+                    <input
+                      aria-invalid={false}
+                      autoFocus={false}
+                      className="MuiInputBase-input MuiInput-input"
+                      disabled={false}
+                      id="expiryDate"
+                      name="expiryDate"
+                      onAnimationStart={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      required={true}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+                >
+                  <label
+                    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+                    data-shrink={false}
+                    htmlFor="cvc"
+                    id="cvc-label"
+                  >
+                    CVC
+                    <span
+                      aria-hidden={true}
+                      className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
+                  </label>
+                  <div
+                    className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+                    onClick={[Function]}
+                  >
+                    <input
+                      aria-invalid={false}
+                      autoFocus={false}
+                      className="MuiInputBase-input MuiInput-input"
+                      disabled={false}
+                      id="cvc"
+                      name="cvc"
+                      onAnimationStart={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      required={true}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="credit-card__container"
+            >
+              <div
+                className="MuiPaper-root credit-card__paper MuiPaper-elevation5 MuiPaper-rounded"
+              >
+                <div
+                  className="credit-card__section"
+                >
+                  <div
+                    className="credit-card__logo"
+                  />
+                  <p
+                    className="MuiTypography-root MuiTypography-body1"
+                  >
+                    
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className="MuiTypography-root credit-card__number MuiTypography-body1"
+                  >
+                    
+                  </p>
+                </div>
+                <div
+                  className="credit-card__section"
+                >
+                  <div
+                    className="credit-card__chip"
+                  />
+                  <div
+                    className="credit-card__mc-logo"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="main-form__btn-footer"
+          >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-contained main-form__submit-btn MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation Mui-disabled Mui-disabled"
+              disabled={true}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={-1}
+              type="submit"
+            >
+              <span
+                className="MuiButton-label"
+              >
+                Сохранить
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
 </div>

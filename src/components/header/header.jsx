@@ -1,34 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AuthContext } from '../auth-context/auth-context';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { logOut } from '../../store/reducers/auth/actions';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import logo from '../../assets/images/logo-header.svg';
 
-const Header = ({ onPageChange }) => {
-  const { logOut } = React.useContext(AuthContext);
-
-  const onLogOut = () => {
-    onPageChange('login');
-    logOut();
-  };
-
+const Header = ({ logOut }) => {
   return (
     <AppBar position="static" elevation={4}>
       <Toolbar classes={{ root: 'header' }}>
         <div className="header__logo">
           <img src={logo} alt="LoftTaxi logo"/>
         </div>
-        <Button classes={{ root: 'header__button' }} type="button" color="primary" onClick={() => onPageChange('map')}>Карта</Button>
-        <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('profile')}>Профиль</Button>
-        <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onPageChange('login')}>Войти</Button>
-        <Button classes={{ root: 'header__button' }} type="button" color="inherit" onClick={() => onLogOut()}>Выйти</Button>
+        <Button
+          classes={{ root: 'header__button' }}
+          type="button"
+          color="inherit"
+        >
+          <NavLink to={'/map'} activeClassName="header__link_active">
+            Карта
+          </NavLink>
+        </Button>
+        <Button
+          classes={{ root: 'header__button' }}
+          type="button"
+          color="inherit"
+        >
+          <NavLink to={'/profile'} activeClassName="header__link_active">
+            Профиль
+          </NavLink>
+        </Button>
+        <Button
+          classes={{ root: 'header__button' }}
+          type="button"
+          color="inherit"
+          onClick={() => logOut()}
+        >
+          Выйти
+        </Button>
       </Toolbar>
     </AppBar>
   );
 };
 
 Header.propTypes = {
-  onPageChange: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
 };
 
-export default Header;
+const mapDispatchToProps = { logOut };
+
+export { Header };
+export default connect(null, mapDispatchToProps)(Header);

@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AuthContext } from '../../auth-context/auth-context';
-import { Paper, Button, Link, Typography, TextField } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { auth } from '../../../store/reducers/auth/actions';
+import { getIsLoggedIn } from '../../../store/reducers/auth/selectors';
+import { Paper, Button, Typography, TextField } from '@material-ui/core';
 import logo from '../../../assets/images/logo-layout-bg.svg';
 
-const Login = ({ onPageChange }) => {
-  const { logIn, isLoggedIn } = React.useContext(AuthContext);
-
+const Login = ({ isLoggedIn, auth }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     const login = evt.target && evt.target.login ? evt.target.login : '';
     const password = evt.target && evt.target.password ? evt.target.password : '';
 
-    logIn(login.value, password.value);
+    auth(login.value, password.value);
   };
 
   if (isLoggedIn) {
-    onPageChange('map');
+    return <Redirect to={'/map'} />
   }
 
   return (
@@ -30,7 +31,7 @@ const Login = ({ onPageChange }) => {
             <Typography component="h1" variant="h4">
               Войти
             </Typography>
-            <form className="form__container" noValidate onSubmit={handleSubmit}>
+            <form className="form__container" onSubmit={handleSubmit}>
               <TextField
                 margin="normal"
                 fullWidth
@@ -61,9 +62,9 @@ const Login = ({ onPageChange }) => {
                 Войти
               </Button>
             </form>
-            <Typography classes={{ root: 'form__btns-container' }} variant="body1">
+            <Typography classes={{ root: 'form__footer' }} variant="body1">
               <span>Новый пользователь?&nbsp;</span>
-              <Link className="form__btn-footer" onClick={() => onPageChange('registration')}>
+              <Link className="form__footer-link" to={'/registration'}>
                 Зарегистрируйтесь
               </Link>
             </Typography>
@@ -75,7 +76,15 @@ const Login = ({ onPageChange }) => {
 };
 
 Login.propTypes = {
-  onPageChange: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  auth: PropTypes.func.isRequired,
 };
 
-export default Login;
+const mapStateToProps = ({ AUTH }) => ({
+  isLoggedIn: getIsLoggedIn({ AUTH }),
+});
+
+const mapDispatchToProps = { auth };
+
+export { Login };
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

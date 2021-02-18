@@ -28,7 +28,6 @@ exports[`Login component test Should render Login correctly 1`] = `
         </h1>
         <form
           className="form__container"
-          noValidate={true}
           onSubmit={[Function]}
         >
           <div
@@ -132,16 +131,15 @@ exports[`Login component test Should render Login correctly 1`] = `
           </button>
         </form>
         <p
-          className="MuiTypography-root form__btns-container MuiTypography-body1"
+          className="MuiTypography-root form__footer MuiTypography-body1"
         >
           <span>
             Новый пользователь? 
           </span>
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover form__btn-footer MuiTypography-colorPrimary"
-            onBlur={[Function]}
+            className="form__footer-link"
+            href="/registration"
             onClick={[Function]}
-            onFocus={[Function]}
           >
             Зарегистрируйтесь
           </a>

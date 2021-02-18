@@ -1,5 +1,5 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import orange from "@material-ui/core/colors/orange";
+import { createMuiTheme } from '@material-ui/core/styles';
+import orange from '@material-ui/core/colors/orange';
 
 export default createMuiTheme({
   palette: {
@@ -7,7 +7,7 @@ export default createMuiTheme({
       main: "#ffc617"
     },
     secondary: {
-      main: "#ff0000"
+      main: "#7b7b7b"
     }
   },
   status: {

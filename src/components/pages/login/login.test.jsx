@@ -1,69 +1,25 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import { makeInitialStateMock } from '../../../utils';
 import Login from './login';
 
-const mockContext = jest.fn();
-jest.mock('../../auth-context/auth-context', () => ({
-  Consumer: ({ children }) => children(mockContext()),
-}));
-
 describe('Login component test', () => {
-  beforeAll(() => {
-    mockContext.mockClear();
-  });
+  const store = configureStore()(makeInitialStateMock());
 
   it('Should render Login correctly', () => {
     const tree = renderer.create(
-      <Login
-        onPageChange={jest.fn()}
-      />
+        <Provider store={store}>
+          <MemoryRouter>
+            <Login
+              isLoggedIn={false}
+              auth={jest.fn()}
+            />
+          </MemoryRouter>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-  test('Form submit', () => {
-    const onSubmitAction = jest.fn();
-    const wrapper = shallow(
-        <Login
-          onPageChange={jest.fn()}
-        />
-    );
-
-    wrapper.find('.form__container').simulate('submit', {
-      preventDefault: jest.fn(),
-    });
-
-    expect(onSubmitAction).toHaveBeenCalledTimes(0);
-  });
-
-  test('Click on submit button', () => {
-    const onSubmitButtonClick = jest.fn();
-    const wrapper = shallow(
-        <Login
-          onPageChange={jest.fn()}
-        />
-    );
-
-    wrapper.find('.form__submit-btn').simulate('click', {
-      preventDefault: jest.fn(),
-    });
-
-    expect(onSubmitButtonClick).toHaveBeenCalledTimes(0);
-  });
-
-  test('Click on form footer button', () => {
-    const onRegisterButtonClick = jest.fn();
-    const wrapper = shallow(
-        <Login
-          onPageChange={jest.fn()}
-        />
-    );
-
-    wrapper.find('.form__btn-footer').simulate('click', {
-      preventDefault: jest.fn(),
-    });
-
-    expect(onRegisterButtonClick).toHaveBeenCalledTimes(0);
   });
 });

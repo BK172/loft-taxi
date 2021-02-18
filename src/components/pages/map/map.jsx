@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import Header from '../../header/header';
 
-class Map extends Component {
+class Map extends React.Component {
   constructor(props) {
     super(props);
 
@@ -27,11 +26,9 @@ class Map extends Component {
   }
 
   render() {
-    const { onPageChange } = this.props;
-
     return (
       <div className="wrapper">
-        <Header onPageChange={onPageChange} />
+        <Header />
         <main className="main">
           <section className="map__wrapper">
             <div className="map__map" ref={this.mapContainer}></div>
@@ -41,9 +38,5 @@ class Map extends Component {
     );
   }
 }
-
-Map.propTypes = {
-  onPageChange: PropTypes.func.isRequired,
-};
 
 export default Map;
