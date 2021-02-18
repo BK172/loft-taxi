@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from '../../header/header';
-import { getCard, saveCard } from '../../../store/reducers/card/actions';
+import { getCard, registCard } from '../../../store/reducers/card/actions';
 import { getCvc, getCardName, getCardNumber, getExpiryDate } from '../../../store/reducers/card/selectors';
 import { Paper, Button, Typography, TextField } from '@material-ui/core';
 
 class Profile extends React.Component {
   state = {
-    cvc: '',
-    cardName: '',
-    cardNumber: '',
-    expiryDate: '',
+    cvc: this.props.cvc,
+    cardName: this.props.cardName,
+    cardNumber: this.props.cardNumber,
+    expiryDate: this.props.expiryDate,
     isFormValid: false,
     isCardSaved: false,
   }
@@ -22,36 +22,15 @@ class Profile extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { cvc, cardName, cardNumber, expiryDate } = this.props;
+    const { cvc, cardName, cardNumber, expiryDate } = this.state;
 
     if (
-      prevProps.cvc !== cvc ||
-      prevProps.cardName !== cardName ||
-      prevProps.cardNumber !== cardNumber ||
-      prevProps.expiryDate !== expiryDate
+      prevState.cvc !== cvc ||
+      prevState.cardName !== cardName ||
+      prevState.cardNumber !== cardNumber ||
+      prevState.expiryDate !== expiryDate
     ) {
-      this.setState({
-        cvc,
-        cardName,
-        cardNumber,
-        expiryDate,
-      });
-    }
-
-    const {
-      cvc: s_cvc,
-      cardName: s_cardName,
-      cardNumber: s_cardNumber,
-      expiryDate: s_expiryDate
-    } = this.state;
-
-    if (
-      prevState.cvc !== s_cvc ||
-      prevState.cardName !== s_cardName ||
-      prevState.cardNumber !== s_cardNumber ||
-      prevState.expiryDate !== s_expiryDate
-    ) {
-      if (s_cvc && s_cardName && s_cardNumber && s_expiryDate) {
+      if (cvc && cardName && cardNumber && expiryDate) {
         this.setState({isFormValid: true});
       } else {
         this.setState({isFormValid: false});
@@ -64,7 +43,7 @@ class Profile extends React.Component {
     const { cvc, cardName, cardNumber, expiryDate } = this.state;
 
     if (cvc && cardName && cardNumber && expiryDate) {
-      this.props.saveCard(cvc, cardName, cardNumber, expiryDate);
+      this.props.registCard(cvc, cardName, cardNumber, expiryDate);
       this.setState({isCardSaved: true});
     }
   }
@@ -230,7 +209,7 @@ Profile.propTypes = {
   cardNumber: PropTypes.string.isRequired,
   expiryDate: PropTypes.string.isRequired,
   getCard: PropTypes.func.isRequired,
-  saveCard: PropTypes.func.isRequired,
+  registCard: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ CARD }) => ({
@@ -240,7 +219,7 @@ const mapStateToProps = ({ CARD }) => ({
   expiryDate: getExpiryDate({ CARD }),
 });
 
-const mapDispatchToProps = { getCard, saveCard };
+const mapDispatchToProps = { getCard, registCard };
 
 export { Profile };
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
