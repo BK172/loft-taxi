@@ -7,8 +7,8 @@ export function* getCardDataSaga() {
   const token = yield select(getAuthToken);
   const data = yield call(serverGetCard, token);
 
-  console.log('token get', token);
-  console.log('data get', data);
+  // console.log('token get', token);
+  // console.log('data get', data);
 
   if (data && data.cardNumber) {
     yield put(saveCard(data));
@@ -32,8 +32,8 @@ export function* saveCardDataSaga(action) {
     token,
   );
 
-  console.log('token save', token);
-  console.log('data save', data);
+  // console.log('token save', token);
+  // console.log('data save', data);
 
   if (data && data.success) {
     yield put(saveCard(data));
