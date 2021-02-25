@@ -1,5 +1,5 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import { ActionType, saveCard } from '../../reducers/card/actions';
+import { ActionType, saveRoute, saveAdresses } from '../../reducers/card/actions';
 import { serverGetRoute, serverGetAddresses } from '../../../api';
 
 export function* getRouteDataSaga(action) {
@@ -7,7 +7,7 @@ export function* getRouteDataSaga(action) {
   const data = yield call(serverGetRoute, address1, address2);
 
   if (data && data.success) {
-    yield put(saveCard(data));
+    yield put(saveRoute(data));
   }
 };
 
@@ -19,7 +19,7 @@ export function* getAddressListSaga() {
   const data = yield call(serverGetAddresses);
 
   if (data && data.success) {
-    yield put(saveCard(data));
+    yield put(saveAdresses(data));
   }
 };
 
