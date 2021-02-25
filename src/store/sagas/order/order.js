@@ -12,7 +12,7 @@ export function* getRouteDataSaga(action) {
 };
 
 export function* getRouteSaga() {
-  yield takeEvery(ActionType.GET_CARD, getRouteDataSaga);
+  yield takeEvery(ActionType.GET_ROUTE, getRouteDataSaga);
 };
 
 export function* getAddressListSaga() {
@@ -24,5 +24,5 @@ export function* getAddressListSaga() {
 };
 
 export function* getAddressesSaga() {
-  yield takeEvery(ActionType.REGIST_CARD, getAddressListSaga);
+  yield takeEvery(ActionType.GET_ADDRESSES, getAddressListSaga);
 };

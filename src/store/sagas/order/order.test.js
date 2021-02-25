@@ -1,46 +1,33 @@
-import { getCardDataSaga, saveCardDataSaga } from './card';
-import { ActionType, getCard, registCard } from '../../reducers/card/actions';
+import { getRouteDataSaga, getAddressListSaga } from './card';
+import { ActionType, getRoute, getAddresses } from '../../reducers/card/actions';
 import { recordSaga } from '../../recordSaga';
 
-jest.mock('../../../api', () => ({ serverGetCard: jest.fn(() => true) }));
-jest.mock('../../../api', () => ({ serverSaveCard: jest.fn(() => true) }));
-jest.mock('../../reducers/auth/selectors', () => ({ getAuthToken: jest.fn(() => 'AUTH_TOKEN') }));
+jest.mock('../../../api', () => ({ serverGetRoute: jest.fn(() => true) }));
+jest.mock('../../../api', () => ({ serverGetAddresses: jest.fn(() => true) }));
 
-describe('Card saga test', () => {
-  it('gets card info through api', async () => {
+describe('Order saga test', () => {
+  it('gets info info through api', async () => {
     const dispatched = await recordSaga(
-      getCardDataSaga,
-      getCard(),
+      getRouteDataSaga,
+      getRoute('Шаверма на Невском', 'Пулково (LED)'),
     );
 
     expect(dispatched).toEqual([
       {
-        type: ActionType.SAVE_CARD,
-        payload: {
-          cvc: '123',
-          cardName: 'CardName',
-          cardNumber: '111111111111',
-          expiryDate: '01/11',
-        },
+        type: ActionType.GET_ROUTE,
       },
     ]);
   });
 
-  it('saves card info through api', async () => {
+  it('gets adresses list info through api', async () => {
     const dispatched = await recordSaga(
-      saveCardDataSaga,
-      registCard('123', 'CardName', '111111111111', '01/11'),
+      getAddressListSaga,
+      getAddresses(),
     );
 
     expect(dispatched).toEqual([
       {
-        type: ActionType.SAVE_CARD,
-        payload: {
-          cvc: '123',
-          cardName: 'CardName',
-          cardNumber: '111111111111',
-          expiryDate: '01/11',
-        },
+        type: ActionType.GET_ADDRESSES,
       },
     ]);
   });
