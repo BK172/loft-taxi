@@ -44,3 +44,16 @@ export const serverSaveCard = async (cvc, cardName, cardNumber, expiryDate, toke
     },
   }).then(response => response.data);
 };
+
+export const serverGetRoute = async (address1, address2) => {
+  return axios('https://loft-taxi.glitch.me/route', {
+    params: {
+      address1,
+      address2,
+    },
+  }).then(response => response.data);
+};
+
+export const serverGetAddresses = async () => {
+  return axios('https://loft-taxi.glitch.me/addressList').then(response => response.data);
+};
