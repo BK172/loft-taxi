@@ -4,6 +4,7 @@ import { extend } from '../../../utils';
 const initialState = {
   route: [],
   addressList: [],
+  routeContainer: 'NO_CARD',
 };
 
 const orderReducer = (state = initialState, action) => {
@@ -15,6 +16,10 @@ const orderReducer = (state = initialState, action) => {
     case ActionType.SAVE_ADRESSES:
       return extend(state, {
         addressList: action.payload.addressList,
+      });
+    case ActionType.CHANGE_ROUTE_CONTAINER:
+      return extend(state, {
+        routeContainer: action.payload.routeContainer,
       });
     default:
       return state;

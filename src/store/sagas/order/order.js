@@ -4,9 +4,9 @@ import { serverGetRoute, serverGetAddresses } from '../../../api';
 
 export function* getRouteDataSaga(action) {
   const { address1, address2 } = action.payload;
-  const data = yield call(serverGetRoute, address1, address2);
+  const { data } = yield call(serverGetRoute, address1, address2);
 
-  if (data && data.success) {
+  if (data) {
     yield put(saveRoute(data));
   }
 };
@@ -18,8 +18,8 @@ export function* getRouteSaga() {
 export function* getAddressListSaga() {
   const data = yield call(serverGetAddresses);
 
-  if (data && data.success) {
-    yield put(saveAdresses(data));
+  if (data && data.adresses) {
+    yield put(saveAdresses(data.adresses));
   }
 };
 
