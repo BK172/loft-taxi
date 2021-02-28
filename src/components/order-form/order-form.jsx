@@ -5,24 +5,29 @@ import OrderFormOrdered from './order-form-ordered';
 import OrderFormNoCard from './order-form-no-card';
 
 function OrderForm({ routeContainer }) {
+  const getContent = () => {
+    if (routeContainer === 'SELECT') {
+      return <OrderFormSelect />;
+    } else if (routeContainer === 'ORDERED') {
+      return <OrderFormOrdered />;
+    }
+
+    return <OrderFormNoCard />;
+  };
+
   return (
     <div className="order-form">
-      {
-        {
-          ['SELECT']: <OrderFormSelect />,
-          ['ORDERED']: <OrderFormOrdered />,
-          ['NO_CARD']: <OrderFormNoCard />,
-        }
-        [routeContainer]
-      }
+      {getContent()}
     </div>
   );
 }
 
 OrderForm.defaultProps = {
-  routeContainer: 'NO_CARD',
+  routeContainer: 'ORDERED',
 }
 
 OrderForm.propTypes = {
   routeContainer: PropTypes.string.isRequired,
 };
+
+export default OrderForm;

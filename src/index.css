@@ -109,14 +109,19 @@ body {
   max-width: 300px;
 }
 
-.order-form__container {
-  margin-top: 48px;
-  margin-bottom: 48px;
-  padding: 44px 60px;
+.order-form .order-form__container {
+  width: 486px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  pointer-events: all;
 }
 
 .order-form .order-form-title {
   margin-bottom: 16px;
+}
+
+.order-form .order-form__order {
+  padding: 20px 46px;
 }
 
 /* Header */

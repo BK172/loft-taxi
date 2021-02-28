@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -12,10 +12,10 @@ mapboxgl.accessToken =
   'pk.eyJ1IjoiZGlzZWx0dXJib2Rpc2VsIiwiYSI6ImNra21iYjFpejM2ZDEydnBhMnR6amp3czkifQ.mdeQS7AedbRhBQr2h8CC5A';
 
 function Map({ route, routeContainer, changeRouteContainer }) {
-  const map = null;
-  const mapContainer = React.useRef(null);
+  let map = null;
+  let mapContainer = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     map = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v9',
@@ -26,14 +26,14 @@ function Map({ route, routeContainer, changeRouteContainer }) {
     return () => map.remove();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (route && route.length > 0) {
       drawRoute(map.current, route);
       changeRouteContainer('ORDERED');
     }
   }, [route, changeRouteContainer]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (routeContainer === 'SELECT') {
       if (map.current.getLayer('route')) {
         map.current.removeLayer('route');
@@ -47,7 +47,7 @@ function Map({ route, routeContainer, changeRouteContainer }) {
       <Header />
       <main className="main">
         <section className="map__wrapper">
-          <div className="map__map" ref={this.mapContainer}></div>
+          <div className="map__map" ref={mapContainer}></div>
         </section>
         <OrderForm />
       </main>

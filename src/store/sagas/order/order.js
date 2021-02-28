@@ -1,5 +1,5 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import { ActionType, saveRoute, saveAdresses } from '../../reducers/card/actions';
+import { ActionType, saveRoute, saveAdresses } from '../../reducers/order/actions';
 import { serverGetRoute, serverGetAddresses } from '../../../api';
 
 export function* getRouteDataSaga(action) {
