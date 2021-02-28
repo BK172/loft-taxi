@@ -1,42 +1,80 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Header from '../../header/header';
+import OrderForm from '../../order-form/order-form';
+import { changeRouteContainer } from '../../../store/reducers/order/actions';
+import { getRoute, getAddressList, getRouteContainer } from '../../../store/reducers/order/selectors';
+import { drawRoute } from '../../../utils';
 
-class Map extends React.Component {
-  constructor(props) {
-    super(props);
+mapboxgl.accessToken =
+  'pk.eyJ1IjoiZGlzZWx0dXJib2Rpc2VsIiwiYSI6ImNra21iYjFpejM2ZDEydnBhMnR6amp3czkifQ.mdeQS7AedbRhBQr2h8CC5A';
 
-    this.map = null;
-    this.mapContainer = React.createRef();
-  }
+function Map({ route, routeContainer, changeRouteContainer }) {
+  const map = null;
+  const mapContainer = React.useRef(null);
 
-  componentDidMount() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZGlzZWx0dXJib2Rpc2VsIiwiYSI6ImNra21iYjFpejM2ZDEydnBhMnR6amp3czkifQ.mdeQS7AedbRhBQr2h8CC5A';
-
-    this.map = new mapboxgl.Map({
-      container: this.mapContainer.current,
+  React.useEffect(() => {
+    map = new mapboxgl.Map({
+      container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v9',
       center: [30.3056504, 59.9429126],
       zoom: 10,
     });
-  }
 
-  componentWillUnmount() {
-    this.map.remove();
-  }
+    return () => map.remove();
+  }, []);
 
-  render() {
-    return (
-      <div className="wrapper">
-        <Header />
-        <main className="main">
-          <section className="map__wrapper">
-            <div className="map__map" ref={this.mapContainer}></div>
-          </section>
-        </main>
-      </div>
-    );
-  }
+  React.useEffect(() => {
+    if (route && route.length > 0) {
+      drawRoute(map.current, route);
+      changeRouteContainer('ORDERED');
+    }
+  }, [route, changeRouteContainer]);
+
+  React.useEffect(() => {
+    if (routeContainer === 'ROUTE_SELECT') {
+      if (map.current.getLayer('route')) {
+        map.current.removeLayer('route');
+        map.current.removeSource('route');
+      }
+    }
+  }, [routeContainer]);
+
+  return (
+    <div className="wrapper">
+      <Header />
+      <main className="main">
+        <section className="map__wrapper">
+          <div className="map__map" ref={this.mapContainer}></div>
+        </section>
+        <OrderForm />
+      </main>
+    </div>
+  );
 }
 
-export default Map;
+Map.defaultProps = {
+  route: [],
+  addressList: [],
+  routeContainer: 'NO_CARD',
+}
+
+Map.propTypes = {
+  route: PropTypes.array.isRequired,
+  addressList: PropTypes.array.isRequired,
+  routeContainer: PropTypes.string.isRequired,
+  changeRouteContainer: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ ORDER }) => ({
+  route: getRoute({ ORDER }),
+  addressList: getAddressList({ ORDER }),
+  routeContainer: getRouteContainer({ ORDER }),
+});
+
+const mapDispatchToProps = { changeRouteContainer };
+
+export { Map };
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
