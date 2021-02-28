@@ -34,7 +34,7 @@ function Map({ route, routeContainer, changeRouteContainer }) {
   }, [route, changeRouteContainer]);
 
   React.useEffect(() => {
-    if (routeContainer === 'ROUTE_SELECT') {
+    if (routeContainer === 'SELECT') {
       if (map.current.getLayer('route')) {
         map.current.removeLayer('route');
         map.current.removeSource('route');
