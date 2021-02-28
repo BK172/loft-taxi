@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Header from '../../header/header';
 import OrderForm from '../../order-form/order-form';
 import { changeRouteContainer } from '../../../store/reducers/order/actions';
-import { getRoute, getAddressList, getRouteContainer } from '../../../store/reducers/order/selectors';
+import { getRoute, getRouteContainer } from '../../../store/reducers/order/selectors';
 import { drawRoute } from '../../../utils';
 
 mapboxgl.accessToken =
@@ -57,20 +57,16 @@ function Map({ route, routeContainer, changeRouteContainer }) {
 
 Map.defaultProps = {
   route: [],
-  addressList: [],
-  routeContainer: 'NO_CARD',
 }
 
 Map.propTypes = {
   route: PropTypes.array.isRequired,
-  addressList: PropTypes.array.isRequired,
   routeContainer: PropTypes.string.isRequired,
   changeRouteContainer: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ ORDER }) => ({
   route: getRoute({ ORDER }),
-  addressList: getAddressList({ ORDER }),
   routeContainer: getRouteContainer({ ORDER }),
 });
 

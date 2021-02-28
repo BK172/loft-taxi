@@ -11,14 +11,14 @@ function OrderFormOrdered({ changeRouteContainer }) {
     <Paper
       classes={{ root: 'order-form__container' }}
       elevation={1}
-      square={false}
+      square={!!false}
     >
       <Typography
         classes={{ root: 'order-form-title' }}
         component="h1"
         variant="h4"
         align="center"
-        paragraph={false}
+        paragraph={!!false}
       >
         Заказ размещён
       </Typography>
