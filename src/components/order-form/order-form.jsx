@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OrderFormSelect from './order-form-select';
+import OrderFormOrdered from './order-form-ordered';
+import OrderFormNoCard from './order-form-no-card';
 
 function OrderForm({ routeContainer }) {
   return (
-    <div className="route-box">
-      <Paper className="route-box__container">
+    <div className="order-form">
+      {
         {
-          {
-            ['SELECT']: <OrderFormSelect />,
-            ['ORDERED']: <OrderFormOrdered />,
-            ['NO_CARD']: <OrderFormNoCard />,
-          }
-          [routeContainer]
+          ['SELECT']: <OrderFormSelect />,
+          ['ORDERED']: <OrderFormOrdered />,
+          ['NO_CARD']: <OrderFormNoCard />,
         }
-      </Paper>
+        [routeContainer]
+      }
     </div>
   );
 }

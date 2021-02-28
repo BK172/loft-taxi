@@ -99,6 +99,26 @@ body {
   color: inherit;
 }
 
+/* Order Form */
+
+.order-form {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  max-width: 300px;
+}
+
+.order-form__container {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  padding: 44px 60px;
+}
+
+.order-form .order-form-title {
+  margin-bottom: 16px;
+}
+
 /* Header */
 
 .header {
